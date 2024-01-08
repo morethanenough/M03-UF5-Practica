@@ -16,6 +16,5 @@ public class HelloController {
     @FXML
     protected void onButtonClick() {
         welcomeText.setText(userName.getText());
-
     }
 }
