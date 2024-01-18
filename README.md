@@ -9,3 +9,5 @@ S'haurà d'implementar un mètoda que mitjançant un random esculli pedra, paper
 Tindrà uns atributs que seran el nom, frase_de_victoria i frase_de_derrota (com a mínim). Ampliar en cas de necessitat.
 ### Jugador
 Tindrà un mètode de desar partida que crearà un ***JSON*** amb la informació del nom del jugador, els punts que porta acumulats, a quina ronda es troba i un array amb els rivals de la seva partida.
+## Imatges
+Cal posar en comú l'estil de les imatges
