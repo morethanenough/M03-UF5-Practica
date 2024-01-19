@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
+
 
 public class Enemigos {
     private String[] monstruos;
@@ -22,9 +22,8 @@ public class Enemigos {
 
     /** Elegir piedra papel o tijera**/
     public String elegirAtaque(){
-        Random attack = new Random();
-        int elegir = attack.nextInt(3);
-        switch (elegir) {
+        int attack = (int)(Math.random() * 3);
+        switch (attack) {
             case 0:
                 return "piedra";
 
