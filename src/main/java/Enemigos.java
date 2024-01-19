@@ -26,12 +26,14 @@ public class Enemigos {
         switch (attack) {
             case 0:
                 return "piedra";
-
             case 1:
                 return "papel";
 
-            default:
+            case 2:
                 return "tijeras";
+
+            default:
+                return "error";
         }
     }
 
@@ -43,3 +45,5 @@ public class Enemigos {
         return new ArrayList<>(listaEnemigos.subList(0, 5));
     }
 }
+
+
