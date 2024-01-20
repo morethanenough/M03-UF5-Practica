@@ -6,9 +6,9 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxproject.GameController">
    <children>
-      <Button id="piedraBtn" layoutX="50.0" layoutY="297.0" mnemonicParsing="false" text="Piedra" />
-      <Button id="papelBtn" layoutX="117.0" layoutY="297.0" mnemonicParsing="false" text="Papel" />
-      <Button id="tijerasBtn" layoutX="179.0" layoutY="297.0" mnemonicParsing="false" text="Tijeras" />
+      <Button fx:id="piedraBtn" onAction="#jugadaPiedra" layoutX="50.0" layoutY="297.0" mnemonicParsing="false" text="Piedra" />
+      <Button fx:id="papelBtn" layoutX="117.0" layoutY="297.0" mnemonicParsing="false" text="Papel" />
+      <Button fx:id="tijerasBtn" layoutX="179.0" layoutY="297.0" mnemonicParsing="false" text="Tijeras" />
       <ImageView fitHeight="179.0" fitWidth="188.0" layoutX="360.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../java/Img/monsterForJava.png" />
