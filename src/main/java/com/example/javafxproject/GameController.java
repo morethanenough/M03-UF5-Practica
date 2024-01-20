@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class GameController {
     @FXML
-    private Label nombreUsuarioLabel = null;
+    private static Label nombreUsuarioLabel = null;
     @FXML
     private Label winRoundsLabel = null;
     @FXML
@@ -20,14 +20,17 @@ public class GameController {
     private Label monsterNameLabel = null;
     private static String nombreJugador;
 
-    private Jugador jugador;
+    private static Jugador jugador;
     private Enemic enemigo;
 
     private int rondasGanadas = 0;
     private int rondasPerdidas = 0;
 
     public static void setNombreJugador(String nombre) {
-        nombreJugador = nombre;
+        if (jugador != null) {
+            jugador.setName(nombre);
+        }
+        nombreUsuarioLabel.setText(nombre);
     }
 
     public GameController() {
@@ -59,34 +62,51 @@ public class GameController {
         }
     }
 
-    private void resolverRonda(String jugadaJugador) {
+    public void jugadaPiedra(ActionEvent actionEvent) {
         String jugadaEnemigo = enemigo.elegirAtaque();
-
-        // Lógica de juego
-        if (jugadaJugador.equals(jugadaEnemigo)) {
+        if (jugadaEnemigo.equals("piedra")) {
             // Empate
-        } else if ((jugadaJugador.equals("piedra") && jugadaEnemigo.equals("tijeras")) ||
-                (jugadaJugador.equals("papel") && jugadaEnemigo.equals("piedra")) ||
-                (jugadaJugador.equals("tijeras") && jugadaEnemigo.equals("papel"))) {
-            jugador.sumarPuntuacion();
-            rondasGanadas++;
-        } else {
+        } else if (jugadaEnemigo.equals("papel")) {
             jugador.restarPuntuacion();
             rondasPerdidas++;
+        } else { // jugadaEnemigo es "tijeras"
+            jugador.sumarPuntuacion();
+            rondasGanadas++;
         }
 
+        actualizarEstadoRondas();
         verificarFinJuego();
     }
 
-    public void jugadaPiedra(ActionEvent actionEvent) {
-        resolverRonda("piedra");
-    }
-
     public void jugadaPaper(ActionEvent actionEvent) {
-        resolverRonda("papel");
+        String jugadaEnemigo = enemigo.elegirAtaque();
+        if (jugadaEnemigo.equals("papel")) {
+            // Empate
+        } else if (jugadaEnemigo.equals("tijeras")) {
+            jugador.restarPuntuacion();
+            rondasPerdidas++;
+        } else { // jugadaEnemigo es "piedra"
+            jugador.sumarPuntuacion();
+            rondasGanadas++;
+        }
+
+        actualizarEstadoRondas();
+        verificarFinJuego();
     }
 
     public void jugadaTisora(ActionEvent actionEvent) {
-        resolverRonda("tijeras");
+        String jugadaEnemigo = enemigo.elegirAtaque();
+        if (jugadaEnemigo.equals("tijeras")) {
+            // Empate
+        } else if (jugadaEnemigo.equals("piedra")) {
+            jugador.restarPuntuacion();
+            rondasPerdidas++;
+        } else { // jugadaEnemigo es "papel"
+            jugador.sumarPuntuacion();
+            rondasGanadas++;
+        }
+
+        actualizarEstadoRondas();
+        verificarFinJuego();
     }
 }
