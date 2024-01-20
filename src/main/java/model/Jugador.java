@@ -37,13 +37,13 @@ public class Jugador extends Pj {
 
     /** mètodes per definir la puntuació calculant les partides perdudes i les guanyades **/
     public void sumarPuntuacion() {
-        this.puntuacion += 40;//+40
+        this.puntuacion += 43;//+43
         if (this.puntuacion > 99999999){
             this.puntuacion = 99999999;
         }
     }
     public void restarPuntuacion() {
-        this.puntuacion -= 10;//-10
+        this.puntuacion -= 12;//-12
         if (this.puntuacion < 0){
             this.puntuacion = 0;
         }
