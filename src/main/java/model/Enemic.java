@@ -44,7 +44,7 @@ public class Enemic extends Pj{
         ArrayList<String>listaEnemigos = new ArrayList<>();
         Collections.addAll(listaEnemigos, monstruos);
         Collections.shuffle(listaEnemigos);
-        return new ArrayList<>(listaEnemigos.subList(0, 1));
+        return new ArrayList<>(listaEnemigos.subList(0, 4));
     }
 }
 

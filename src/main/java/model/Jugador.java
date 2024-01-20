@@ -9,7 +9,7 @@ public class Jugador extends Pj {
      * puntiacion: inicialment 0 a mesura que progresi amb el joc, s'incrementara o desincrementa el valor
      * partidasGanadas: cada cop que el jugador guanyi a tots els enemics s'incrementara
      * partidasPerdidas: cada cop que el jugador perdi contra un enemic s'incrementara **/
-    Jugador(String nombreJugador, String fotoJugador){
+    public Jugador(String nombreJugador, String fotoJugador){
         super.name = nombreJugador;
         super.photos = fotoJugador;
         this.puntuacion = 0;
