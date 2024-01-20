@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.javafxproject.GameController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxproject.GameController">
+   <children>
+      <Button id="piedraBtn" layoutX="50.0" layoutY="297.0" mnemonicParsing="false" text="Piedra" />
+      <Button id="papelBtn" layoutX="117.0" layoutY="297.0" mnemonicParsing="false" text="Papel" />
+      <Button id="tijerasBtn" layoutX="179.0" layoutY="297.0" mnemonicParsing="false" text="Tijeras" />
+      <ImageView fitHeight="179.0" fitWidth="188.0" layoutX="360.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../java/Img/monsterForJava.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="179.0" fitWidth="179.0" layoutX="50.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../java/Img/hombre.png" />
+         </image>
+      </ImageView>
+   </children>
 </AnchorPane>
