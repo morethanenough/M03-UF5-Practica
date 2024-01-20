@@ -1,5 +1,4 @@
 package com.example.javafxproject;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

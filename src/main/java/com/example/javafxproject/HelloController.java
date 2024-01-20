@@ -13,7 +13,9 @@ public class HelloController {
     @FXML
     private Label welcomeText;
     @FXML
-    private TextField userName;
+    private TextField nameInput;
+
+    DataSingleton data = DataSingleton.getInstance();
 
     private DataSingleton nombreJugador = DataSingleton.getInstance();
 
