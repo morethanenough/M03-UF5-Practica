@@ -17,12 +17,12 @@ public class HelloController {
 
     DataSingleton data = DataSingleton.getInstance();
 
+    private DataSingleton nombreJugador = DataSingleton.getInstance();
+
     @FXML
     protected void onButtonClick() throws IOException {
-
-        data.setUserName(nameInput.getText());
-
-        Stage stage = (Stage) nameInput.getScene().getWindow();
+        nombreJugador.setUserName(userName.getText());
+        Stage stage = (Stage) userName.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("game-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         stage.setTitle("Game");

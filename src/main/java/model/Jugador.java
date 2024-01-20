@@ -5,12 +5,11 @@ public class Jugador extends Pj {
     private int partidasGanadas;
     private int partidasPerdidas;
 
-    /** constuctor Jugador
-     * paràmetres inicials: nom intoduït pel jugador i foto inicial de la imatge per defecte (que després el jugador pot canviar la imatge)
-     * puntiacion: inicialment 0 a mesura que es progresi amb el joc, s'incrementarà o desincrementarà el valor
-     * partidasGanadas: cada cop que el jugador guanyi a tots els enemics s'incrementarà el valor
-     * partidasPerdidas: cada cop que el jugador perdi contra un enemic s'incrementarà el valor **/
-    Jugador(String nombreJugador, String fotoJugador){
+    /**parametres inicials: nom intoduit pel jugador i foto inicial de la imatge per defecte (que despres el jugador pot cambiar la foto)
+     * puntiacion: inicialment 0 a mesura que progresi amb el joc, s'incrementara o desincrementa el valor
+     * partidasGanadas: cada cop que el jugador guanyi a tots els enemics s'incrementara
+     * partidasPerdidas: cada cop que el jugador perdi contra un enemic s'incrementara **/
+    public Jugador(String nombreJugador, String fotoJugador){
         super.name = nombreJugador;
         super.photos = fotoJugador;
         this.puntuacion = 0;
@@ -18,8 +17,6 @@ public class Jugador extends Pj {
         this.partidasPerdidas = 0;
     }
 
-    /*TODO: InteliJ no detecta como error this.name o this.photos que provienen de la clase Pj
-       (si hay un error, cambiar esto por super.name y super.photos)*/
     public void setNombre(String nombre) { this.name = nombre; }
     public String getNombre() { return name; }
 
@@ -35,7 +32,7 @@ public class Jugador extends Pj {
     public void setPartidasPerdidas(int partidasPerdidas) { this.partidasPerdidas = partidasPerdidas; }
     public int getPartidasPerdidas() { return partidasPerdidas; }
 
-    /** mètodes per definir la puntuació calculant les partides perdudes i les guanyades **/
+    /** metodes per definir la puntuació calculant les partides perdudes i les guanyades**/
     public void sumarPuntuacion() {
         this.puntuacion += 40;//+40
         if (this.puntuacion > 99999999){
