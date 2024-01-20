@@ -2,7 +2,6 @@ package com.example.javafxproject;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import model.Enemic;
 import model.Jugador;
@@ -11,27 +10,20 @@ import java.util.ArrayList;
 
 public class GameController {
     @FXML
-    private static Label nombreUsuarioLabel = null;
+    private Label nombreUsuario = null;
     @FXML
-    private Label winRoundsLabel = null;
+    private Label winRounds = null;
     @FXML
-    private Label loseRoundsLabel = null;
+    private Label loseRounds = null;
     @FXML
-    private Label monsterNameLabel = null;
-    private static String nombreJugador;
+    private Label monsterName = null;
 
     private static Jugador jugador;
     private Enemic enemigo;
 
+    private DataSingleton nombreJugador = DataSingleton.getInstance();
     private int rondasGanadas = 0;
     private int rondasPerdidas = 0;
-
-    public static void setNombreJugador(String nombre) {
-        if (jugador != null) {
-            jugador.setName(nombre);
-        }
-        nombreUsuarioLabel.setText(nombre);
-    }
 
     public GameController() {
        this.enemigo = new Enemic();
@@ -40,8 +32,8 @@ public class GameController {
     @FXML
     public void initialize() {
         // Asegúrate de que los componentes de la UI estén disponibles aquí
-        this.jugador = new Jugador(nombreJugador, "@../../../../java/Img/hombre.png");
-        nombreUsuarioLabel.setText(nombreJugador);
+        this.jugador = new Jugador(nombreJugador.getUserName(), "@../../../../java/Img/hombre.png");
+        nombreUsuario.setText(nombreJugador.getUserName());
         actualizarEstadoRondas();
         actualizarNombreMonstruo();
     }
@@ -49,12 +41,12 @@ public class GameController {
     private void actualizarNombreMonstruo() {
         ArrayList<String> monstruos = enemigo.obtenerCincoEnemigos();
         // Suponiendo que quieres mostrar solo el primer monstruo de la lista
-        monsterNameLabel.setText("Monstruo: " + monstruos.get(0));
+        monsterName.setText("Monstruo: " + monstruos.get(0));
     }
 
     private void actualizarEstadoRondas() {
-        winRoundsLabel.setText("Rondas ganadas: " + rondasGanadas);
-        loseRoundsLabel.setText("Rondas perdidas: " + rondasPerdidas);
+        winRounds.setText("Rondas ganadas: " + rondasGanadas);
+        loseRounds.setText("Rondas perdidas: " + rondasPerdidas);
     }
 
     private void verificarFinJuego() {
