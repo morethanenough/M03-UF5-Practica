@@ -2,10 +2,13 @@ package com.example.javafxproject;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import model.Enemic;
 import model.Jugador;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class GameController {
     @FXML
@@ -16,6 +19,12 @@ public class GameController {
     private Label loseRounds = null;
     @FXML
     private Label monsterName = null;
+    @FXML
+    private Label warning = null;
+    @FXML
+    private ImageView imageJugadaJugador = new ImageView();
+    @FXML
+    private ImageView imageJugadaEnemic = new ImageView();
 
     private static Jugador jugador;
     private Enemic enemigo;
@@ -23,6 +32,14 @@ public class GameController {
     private DataSingleton nombreJugador = DataSingleton.getInstance();
     private int rondasGanadas = 0;
     private int rondasPerdidas = 0;
+    // Rutes imatges pedra, paper, tisora
+    private String imgPaper = "src/main/resources/images/paper.png";
+    private String imgPedra = "src/main/resources/images/pedra.png";
+    private String imgTisora = "src/main/resources/images/tisora.png";
+
+    Image paper = new Image("file:" + imgPaper);
+    Image pedra = new Image("file:" + imgPedra);
+    Image tisora = new Image("file:" + imgTisora);
 
     public GameController() {
        this.enemigo = new Enemic();
@@ -33,6 +50,7 @@ public class GameController {
         // Asegúrate de que los componentes de la UI estén disponibles aquí
         this.jugador = new Jugador(nombreJugador.getUserName(), "@../../../images/img_1.png");
         nombreUsuario.setText(nombreJugador.getUserName());
+        warning.setText("");
         actualizarEstadoRondas();
         actualizarNombreMonstruo();
     }
@@ -45,7 +63,13 @@ public class GameController {
 
     private void actualizarEstadoRondas() {
         winRounds.setText("Rondas ganadas: " + rondasGanadas);
-        loseRounds.setText("Rondas perdidas: " + rondasPerdidas);
+        loseRounds.setText("Rondas ganadas: " + rondasPerdidas);
+        if (rondasGanadas == 3) {
+            warning.setText("Victoria");
+        }
+        if (rondasPerdidas == 3) {
+            warning.setText("Derrota");
+        }
     }
 
     private void verificarFinJuego() {
@@ -53,14 +77,19 @@ public class GameController {
         }
     }
 
-    public void jugadaPiedra(ActionEvent actionEvent) {
+    public void jugadaPiedra(ActionEvent actionEvent) throws InterruptedException {
+        TimeUnit.SECONDS.sleep(2);
+        imageJugadaJugador.setImage(pedra);
         String jugadaEnemigo = enemigo.elegirAtaque();
         if (jugadaEnemigo.equals("piedra")) {
             // Empate
+            imageJugadaEnemic.setImage(pedra);
         } else if (jugadaEnemigo.equals("papel")) {
+            imageJugadaEnemic.setImage(paper);
             jugador.restarPuntuacion();
             rondasPerdidas++;
         } else { // jugadaEnemigo es "tijeras"
+            imageJugadaEnemic.setImage(tisora);
             jugador.sumarPuntuacion();
             rondasGanadas++;
         }
@@ -69,14 +98,19 @@ public class GameController {
         verificarFinJuego();
     }
 
-    public void jugadaPaper(ActionEvent actionEvent) {
+    public void jugadaPaper(ActionEvent actionEvent) throws InterruptedException {
+        TimeUnit.SECONDS.sleep(2);
+        imageJugadaJugador.setImage(paper);
         String jugadaEnemigo = enemigo.elegirAtaque();
         if (jugadaEnemigo.equals("papel")) {
             // Empate
+            imageJugadaEnemic.setImage(paper);
         } else if (jugadaEnemigo.equals("tijeras")) {
+            imageJugadaEnemic.setImage(tisora);
             jugador.restarPuntuacion();
             rondasPerdidas++;
         } else { // jugadaEnemigo es "piedra"
+            imageJugadaEnemic.setImage(pedra);
             jugador.sumarPuntuacion();
             rondasGanadas++;
         }
@@ -85,14 +119,19 @@ public class GameController {
         verificarFinJuego();
     }
 
-    public void jugadaTisora(ActionEvent actionEvent) {
+    public void jugadaTisora(ActionEvent actionEvent) throws InterruptedException {
+        TimeUnit.SECONDS.sleep(2);
+        imageJugadaJugador.setImage(tisora);
         String jugadaEnemigo = enemigo.elegirAtaque();
         if (jugadaEnemigo.equals("tijeras")) {
             // Empate
+            imageJugadaEnemic.setImage(tisora);
         } else if (jugadaEnemigo.equals("piedra")) {
+            imageJugadaEnemic.setImage(pedra);
             jugador.restarPuntuacion();
             rondasPerdidas++;
         } else { // jugadaEnemigo es "papel"
+            imageJugadaEnemic.setImage(paper);
             jugador.sumarPuntuacion();
             rondasGanadas++;
         }
