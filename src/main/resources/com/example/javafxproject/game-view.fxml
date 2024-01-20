@@ -11,12 +11,12 @@
       <Button fx:id="tijerasBtn" layoutX="179.0" layoutY="297.0" mnemonicParsing="false" onAction="#jugadaTisora" text="Tijeras" />
       <ImageView fitHeight="179.0" fitWidth="188.0" layoutX="360.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../java/Img/monsterForJava.png" />
+            <Image url="@../../../images/img.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="179.0" fitWidth="179.0" layoutX="50.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../java/Img/hombre.png" />
+            <Image url="@../../../images/img_1.png" />
          </image>
       </ImageView>
       <Label fx:id="nombreUsuario" layoutX="50.0" layoutY="94.0" text="Label" />

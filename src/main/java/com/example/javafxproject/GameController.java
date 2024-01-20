@@ -31,7 +31,7 @@ public class GameController {
     @FXML
     public void initialize() {
         // Asegúrate de que los componentes de la UI estén disponibles aquí
-        this.jugador = new Jugador(nombreJugador.getUserName(), "@../../../../java/Img/hombre.png");
+        this.jugador = new Jugador(nombreJugador.getUserName(), "@../../../images/img_1.png");
         nombreUsuario.setText(nombreJugador.getUserName());
         actualizarEstadoRondas();
         actualizarNombreMonstruo();

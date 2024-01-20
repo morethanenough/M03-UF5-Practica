@@ -24,7 +24,7 @@ public class HelloController {
         nombreJugador.setUserName(nameInput.getText());
         Stage stage = (Stage) nameInput.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("game-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        Scene scene = new Scene(fxmlLoader.load(), 600, 360);
         stage.setTitle("Game");
         stage.setScene(scene);
         stage.show();
