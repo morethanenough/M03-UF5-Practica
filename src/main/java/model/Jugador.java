@@ -1,11 +1,13 @@
 package model;
 
 public class Jugador extends Pj {
+  
     private int puntuacion;
     private int partidasGanadas;
     private int partidasPerdidas;
 
-    /**parametres inicials: nom intoduit pel jugador i foto inicial de la imatge per defecte (que despres el jugador pot cambiar la foto)
+    /** constuctor Jugador
+     * parametres inicials: nom intoduit pel jugador i foto inicial de la imatge per defecte (que despres el jugador pot cambiar la foto)
      * puntiacion: inicialment 0 a mesura que progresi amb el joc, s'incrementara o desincrementa el valor
      * partidasGanadas: cada cop que el jugador guanyi a tots els enemics s'incrementara
      * partidasPerdidas: cada cop que el jugador perdi contra un enemic s'incrementara **/
