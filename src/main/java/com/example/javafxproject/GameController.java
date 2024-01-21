@@ -1,6 +1,7 @@
 package com.example.javafxproject;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -25,6 +26,14 @@ public class GameController {
     private ImageView imageJugadaJugador = new ImageView();
     @FXML
     private ImageView imageJugadaEnemic = new ImageView();
+    @FXML
+    private Button piedraBtn;
+    @FXML
+    private Button papelBtn;
+    @FXML
+    private Button tijerasBtn;
+
+
 
     private static Jugador jugador;
     private Enemic enemigo;
@@ -66,9 +75,11 @@ public class GameController {
         loseRounds.setText("Rondas ganadas: " + rondasPerdidas);
         if (rondasGanadas == 3) {
             warning.setText("Victoria");
+            disableAllBtns();
         }
         if (rondasPerdidas == 3) {
             warning.setText("Derrota");
+            disableAllBtns();
         }
     }
 
@@ -138,5 +149,11 @@ public class GameController {
 
         actualizarEstadoRondas();
         verificarFinJuego();
+    }
+
+    public void disableAllBtns() {
+        piedraBtn.setDisable(true);
+        tijerasBtn.setDisable(true);
+        papelBtn.setDisable(true);
     }
 }
