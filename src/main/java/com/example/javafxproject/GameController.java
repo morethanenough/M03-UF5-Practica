@@ -9,6 +9,8 @@ import model.Enemic;
 import model.Jugador;
 
 import java.util.ArrayList;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class GameController {
@@ -85,75 +87,119 @@ public class GameController {
 
     private void verificarFinJuego() {
         if (rondasGanadas == 3 || rondasPerdidas == 3) {
+            disableAllBtns();
         }
     }
 
     public void jugadaPiedra(ActionEvent actionEvent) throws InterruptedException {
-        TimeUnit.SECONDS.sleep(2);
-        imageJugadaJugador.setImage(pedra);
-        String jugadaEnemigo = enemigo.elegirAtaque();
-        if (jugadaEnemigo.equals("piedra")) {
-            // Empate
-            imageJugadaEnemic.setImage(pedra);
-        } else if (jugadaEnemigo.equals("papel")) {
-            imageJugadaEnemic.setImage(paper);
-            jugador.restarPuntuacion();
-            rondasPerdidas++;
-        } else { // jugadaEnemigo es "tijeras"
-            imageJugadaEnemic.setImage(tisora);
-            jugador.sumarPuntuacion();
-            rondasGanadas++;
+        // Verifica si el juego ya ha terminado
+        if (rondasGanadas < 3 && rondasPerdidas < 3) {
+            disableBtnsInTime();
+            TimeUnit.SECONDS.sleep(2);
+            imageJugadaJugador.setImage(pedra);
+            String jugadaEnemigo = enemigo.elegirAtaque();
+            if (jugadaEnemigo.equals("piedra")) {
+                // Empate
+                imageJugadaEnemic.setImage(pedra);
+            } else if (jugadaEnemigo.equals("papel")) {
+                imageJugadaEnemic.setImage(paper);
+                rondasPerdidas++;
+            } else { // jugadaEnemigo es "tijeras"
+                imageJugadaEnemic.setImage(tisora);
+                rondasGanadas++;
+            }
+
+            actualizarEstadoRondas();
+            verificarFinJuego();
+        } else {
+            disableAllBtns();
         }
 
-        actualizarEstadoRondas();
-        verificarFinJuego();
     }
 
     public void jugadaPaper(ActionEvent actionEvent) throws InterruptedException {
-        TimeUnit.SECONDS.sleep(2);
-        imageJugadaJugador.setImage(paper);
-        String jugadaEnemigo = enemigo.elegirAtaque();
-        if (jugadaEnemigo.equals("papel")) {
-            // Empate
-            imageJugadaEnemic.setImage(paper);
-        } else if (jugadaEnemigo.equals("tijeras")) {
-            imageJugadaEnemic.setImage(tisora);
-            jugador.restarPuntuacion();
-            rondasPerdidas++;
-        } else { // jugadaEnemigo es "piedra"
-            imageJugadaEnemic.setImage(pedra);
-            jugador.sumarPuntuacion();
-            rondasGanadas++;
-        }
+        // Verifica si el juego ya ha terminado
+        if (rondasGanadas < 3 && rondasPerdidas < 3) {
+            disableBtnsInTime();
+            TimeUnit.SECONDS.sleep(2);
+            imageJugadaJugador.setImage(paper);
+            String jugadaEnemigo = enemigo.elegirAtaque();
+            if (jugadaEnemigo.equals("papel")) {
+                // Empate
+                imageJugadaEnemic.setImage(paper);
+            } else if (jugadaEnemigo.equals("tijeras")) {
+                imageJugadaEnemic.setImage(tisora);
+                rondasPerdidas++;
+            } else { // jugadaEnemigo es "piedra"
+                imageJugadaEnemic.setImage(pedra);
+                rondasGanadas++;
+            }
 
-        actualizarEstadoRondas();
-        verificarFinJuego();
+            actualizarEstadoRondas();
+            verificarFinJuego();
+        } else {
+            disableAllBtns();
+        }
     }
 
     public void jugadaTisora(ActionEvent actionEvent) throws InterruptedException {
-        TimeUnit.SECONDS.sleep(2);
-        imageJugadaJugador.setImage(tisora);
-        String jugadaEnemigo = enemigo.elegirAtaque();
-        if (jugadaEnemigo.equals("tijeras")) {
-            // Empate
-            imageJugadaEnemic.setImage(tisora);
-        } else if (jugadaEnemigo.equals("piedra")) {
-            imageJugadaEnemic.setImage(pedra);
-            jugador.restarPuntuacion();
-            rondasPerdidas++;
-        } else { // jugadaEnemigo es "papel"
-            imageJugadaEnemic.setImage(paper);
-            jugador.sumarPuntuacion();
-            rondasGanadas++;
-        }
+        // Verifica si el juego ya ha terminado
+        if (rondasGanadas < 3 && rondasPerdidas < 3) {
+            disableBtnsInTime();
+            TimeUnit.SECONDS.sleep(2);
+            imageJugadaJugador.setImage(tisora);
+            String jugadaEnemigo = enemigo.elegirAtaque();
+            if (jugadaEnemigo.equals("tijeras")) {
+                // Empate
+                imageJugadaEnemic.setImage(tisora);
+            } else if (jugadaEnemigo.equals("piedra")) {
+                imageJugadaEnemic.setImage(pedra);
+                rondasPerdidas++;
+            } else { // jugadaEnemigo es "papel"
+                imageJugadaEnemic.setImage(paper);
+                rondasGanadas++;
+            }
 
-        actualizarEstadoRondas();
-        verificarFinJuego();
+            actualizarEstadoRondas();
+            verificarFinJuego();
+        } else {
+            disableAllBtns();
+        }
     }
 
     public void disableAllBtns() {
         piedraBtn.setDisable(true);
         tijerasBtn.setDisable(true);
         papelBtn.setDisable(true);
+    }
+
+    public void disableBtnsInTime() {
+        if (rondasGanadas == 3 || rondasPerdidas == 3) {
+            disableAllBtns();
+        } else {
+            piedraBtn.setDisable(true);
+
+            ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
+            executor.schedule(() -> {
+                // Este código se ejecutará después de 3 segundos
+                piedraBtn.setDisable(false); // Vuelve a activar el botón
+            }, 3, TimeUnit.SECONDS);
+
+            papelBtn.setDisable(true);
+
+            ScheduledExecutorService executor2 = Executors.newSingleThreadScheduledExecutor();
+            executor2.schedule(() -> {
+                // Este código se ejecutará después de 3 segundos
+                papelBtn.setDisable(false); // Vuelve a activar el botón
+            }, 3, TimeUnit.SECONDS);
+
+            tijerasBtn.setDisable(true);
+
+            ScheduledExecutorService executor3 = Executors.newSingleThreadScheduledExecutor();
+            executor3.schedule(() -> {
+                // Este código se ejecutará después de 3 segundos
+                tijerasBtn.setDisable(false); // Vuelve a activar el botón
+            }, 3, TimeUnit.SECONDS);
+        }
     }
 }
