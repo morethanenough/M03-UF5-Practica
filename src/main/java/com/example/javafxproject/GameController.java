@@ -7,7 +7,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import model.Enemic;
 import model.Jugador;
+import javax.sound.sampled.*;
 
+
+import java.io.BufferedInputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -77,10 +81,12 @@ public class GameController {
         loseRounds.setText("Rondas ganadas: " + rondasPerdidas);
         if (rondasGanadas == 3) {
             warning.setText("Victoria");
+            playWinSound();
             disableAllBtns();
         }
         if (rondasPerdidas == 3) {
             warning.setText("Derrota");
+            playLoseSound();
             disableAllBtns();
         }
     }
@@ -201,5 +207,28 @@ public class GameController {
                 tijerasBtn.setDisable(false); // Vuelve a activar el botón
             }, 3, TimeUnit.SECONDS);
         }
+    }
+
+    private void playSound(String soundFileName) {
+        try {
+            // La ruta se especifica como un recurso dentro de la carpeta de recursos del classpath
+            InputStream audioSrc = getClass().getResourceAsStream("/audios/" + soundFileName);
+            // Añadir un BufferedInputStream te permite marcar y restablecer la secuencia (es útil en el streaming de audio)
+            InputStream bufferedIn = new BufferedInputStream(audioSrc);
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(bufferedIn);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioIn);
+            clip.start();
+        } catch (Exception e) {
+            e.printStackTrace(); // Manejo básico de errores
+        }
+    }
+
+    private void playWinSound() {
+        playSound("YouWin.wav");
+    }
+
+    private void playLoseSound() {
+        playSound("YouLoose.wav");
     }
 }
