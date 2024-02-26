@@ -8,8 +8,6 @@ import javafx.scene.image.ImageView;
 import model.Enemic;
 import model.Jugador;
 import javax.sound.sampled.*;
-
-
 import java.io.BufferedInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -211,9 +209,7 @@ public class GameController {
 
     private void playSound(String soundFileName) {
         try {
-            // La ruta se especifica como un recurso dentro de la carpeta de recursos del classpath
             InputStream audioSrc = getClass().getResourceAsStream("/audios/" + soundFileName);
-            // Añadir un BufferedInputStream te permite marcar y restablecer la secuencia (es útil en el streaming de audio)
             InputStream bufferedIn = new BufferedInputStream(audioSrc);
             AudioInputStream audioIn = AudioSystem.getAudioInputStream(bufferedIn);
             Clip clip = AudioSystem.getClip();
