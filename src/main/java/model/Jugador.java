@@ -42,10 +42,13 @@ public class Jugador extends Pj {
         // Si se ganan 3 rondas seguidas, se otorgan 100 puntos
         if (rondasGanadas == 3) {
             this.puntuacion += 100;
+        } else if (rondasGanadas >= 10) {
+            this.puntuacion += 10;
         } else {
             // Calcular los puntos por ronda en función del número total de rondas ganadas
-            puntosPorRonda = (3 - rondasGanadas) * 10; // Reducir 10 puntos por ronda adicional
-            this.puntuacion += puntosPorRonda;
+            puntosPorRonda = (rondasGanadas - 3) * 10;
+            int puntos = 100 - puntosPorRonda;
+            this.puntuacion += puntos;
         }
     }
 }
