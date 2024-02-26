@@ -1,13 +1,17 @@
 package com.example.javafxproject;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 import model.Enemic;
 import model.Jugador;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -58,14 +62,21 @@ public class GameController {
 
     @FXML
     public void initialize() {
-        // Asegúrate de que los componentes de la UI estén disponibles aquí
         this.jugador = new Jugador(nombreJugador.getUserName(), "@../../../images/img_1.png");
         nombreUsuario.setText(nombreJugador.getUserName());
         warning.setText("");
         actualizarEstadoRondas();
         actualizarNombreMonstruo();
     }
-
+    @FXML
+    protected void onButtonClick() throws IOException {
+        Stage stage = (Stage) nombreUsuario.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("results-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 600, 360);
+        stage.setTitle("Game");
+        stage.setScene(scene);
+        stage.show();
+    }
     private void actualizarNombreMonstruo() {
         ArrayList<String> monstruos = enemigo.obtenerCincoEnemigos();
         // Suponiendo que quieres mostrar solo el primer monstruo de la lista
