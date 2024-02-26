@@ -36,16 +36,16 @@ public class Jugador extends Pj {
     public int getPartidasPerdidas() { return partidasPerdidas; }
 
     /** mètodes per definir la puntuació calculant les partides perdudes i les guanyades **/
-    public void sumarPuntuacion() {
-        this.puntuacion += 43;//+43
-        if (this.puntuacion > 99999999){
-            this.puntuacion = 99999999;
-        }
-    }
-    public void restarPuntuacion() {
-        this.puntuacion -= 12;//-12
-        if (this.puntuacion < 0){
-            this.puntuacion = 0;
+    public void sumarPuntuacion(int rondasGanadas) {
+        int puntosPorRonda;
+
+        // Si se ganan 3 rondas seguidas, se otorgan 100 puntos
+        if (rondasGanadas == 3) {
+            this.puntuacion += 100;
+        } else {
+            // Calcular los puntos por ronda en función del número total de rondas ganadas
+            puntosPorRonda = (3 - rondasGanadas) * 10; // Reducir 10 puntos por ronda adicional
+            this.puntuacion += puntosPorRonda;
         }
     }
 }
