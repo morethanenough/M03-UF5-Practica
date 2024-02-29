@@ -1,25 +1,13 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.Collections;
-
-
 public class Enemic extends Pj{
-    private String[] monstruos;
+    private String frase1;
+    private String frase2;
 
-    public Enemic(){
-        monstruos = new String[]{
-                "monstruo_1",
-                "monstruo_2",
-                "monstruo_3",
-                "monstruo_4",
-                "monstruo_5",
-                "monstruo_6",
-                "monstruo_7",
-                "monstruo_8",
-                "monstruo_9",
-                "monstruo_10"
-        };
+    public Enemic(String nombre, String frase1, String frase2, String foto){
+        super(nombre, foto);
+        this.frase1 = frase1;
+        this.frase2 = frase2;
     }
 
     /** Elegir piedra papel o tijera**/
@@ -40,12 +28,12 @@ public class Enemic extends Pj{
     }
 
     /** Random enemigos para luchar **/
-    public ArrayList<String> obtenerCincoEnemigos(){
+    /*public ArrayList<String> obtenerCincoEnemigos(enemigos[]) {
         ArrayList<String>listaEnemigos = new ArrayList<>();
-        Collections.addAll(listaEnemigos, monstruos);
+        Collections.addAll(listaEnemigos, enemigos);
         Collections.shuffle(listaEnemigos);
         return new ArrayList<>(listaEnemigos.subList(0, 4));
-    }
+    }*/
 }
 
 

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxproject.MainController">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="570.0" layoutX="27.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/title.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="220.0" layoutY="189.0" mnemonicParsing="false" onAction="#onButtonClick" prefHeight="26.0" prefWidth="160.0" text="Start Game">
+         <font>
+            <Font name="Roboto Light" size="18.0" />
+         </font></Button>
+      <Button disable="true" layoutX="220.0" layoutY="232.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="160.0" text="Ranking">
+         <font>
+            <Font name="Roboto Light" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="220.0" layoutY="275.0" mnemonicParsing="false" onAction="#close" prefHeight="26.0" prefWidth="160.0" text="Exit">
+         <font>
+            <Font name="Roboto Light" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

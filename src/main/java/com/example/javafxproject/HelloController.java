@@ -6,11 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import org.json.simple.JSONArray;
-
-import org.json.simple.JSONObject;
-
-import org.json.simple.parser.*;
+import javax.sound.sampled.*;
 
 import java.io.IOException;
 
@@ -29,7 +25,7 @@ public class HelloController {
         nombreJugador.setUserName(nameInput.getText());
         Stage stage = (Stage) nameInput.getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("game-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        Scene scene = new Scene(fxmlLoader.load(), 600, 360);
         stage.setTitle("Game");
         stage.setScene(scene);
         stage.show();

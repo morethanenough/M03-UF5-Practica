@@ -1,13 +1,18 @@
 # M03-UF5-Practica
 ## Resum
-Farem una aplicació que serà un joc de pedra, paper i tisora. La idea és fer un mínim de dues escenes a les que en una recollirem les dades del jugador amb un formulari, una segona pantalla que serà on es durà a terme l'acció de la partida.
+La nostra aplicació és un joc de pedra, paper i tisora.
+La primera escena és d'accés a l'aplicació amb tres opcions: Començar, Ranking i Sortir.
+**_Començar_**: Anirem a una nova escena que ens demanarà el nostre nom i ens demanarà que escollim un avatar.
 ## Classes
 ### PJ
-Farem una classe abstracte de la que sortiran la classe *jugador* i *"monstre"* (com a origen tot i que ja sabem el que vam parlar).
-### Monstre
-S'haurà d'implementar un mètoda que mitjançant un random esculli pedra, paper o tisores.
-Tindrà uns atributs que seran el nom, frase_de_victoria i frase_de_derrota (com a mínim). Ampliar en cas de necessitat.
+Classe abstracte de la que sortiran la classe *jugador* i *enemic*.
+Atributs: nom i foto.
+Mètodes: getters i setters.
+### Enemic
+Classe que exten de **_Pj_**.
+Atributs: frase_de_victoria i frase_de_derrota.
+Mètodes: constructor, setters, getters i elegirAtaque (genera la jugada aleatoria).
 ### Jugador
-Tindrà un mètode de desar partida que crearà un ***JSON*** amb la informació del nom del jugador, els punts que porta acumulats, a quina ronda es troba i un array amb els rivals de la seva partida.
-## Imatges
-Cal posar en comú l'estil de les imatges
+Classe que exten de **_Pj_**.
+Atributs: puntuacion, partidasGanadas, partidasPerdidas.
+Mètodes: constructor, setters i getters.
