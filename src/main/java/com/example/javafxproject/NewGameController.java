@@ -95,10 +95,11 @@ public class NewGameController {
     private void verificarFinJuego() {
         if (rondasGanadas == 3 || rondasPerdidas == 3) {
             disableAllBtns();
+            puntuacion(rondasGanadas, rondasPerdidas);
         }
     }
 
-    public void jugadaPedra(ActionEvent actionEvent, String jugada) throws InterruptedException {
+    public void jugadaPedra(ActionEvent actionEvent) throws InterruptedException {
         // Desactivem els botons
         disableAllBtns();
         // Programem un executor que torni a activar els botons després de 3 segons
@@ -125,11 +126,12 @@ public class NewGameController {
         }, 3, TimeUnit.SECONDS);
     }
 
-    public void jugadaPaper(ActionEvent actionEvent) throws InterruptedException {
-        // Verifica si el juego ya ha terminado
-        if (rondasGanadas < 3 && rondasPerdidas < 3) {
-            disableBtnsInTime();
-            TimeUnit.SECONDS.sleep(2);
+    public void jugadaPaper(ActionEvent actionEvent) {
+        // Desactivem els botons
+        disableAllBtns();
+        // Programem un executor que torni a activar els botons després de 3 segons
+        ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
+        executor.schedule(() -> {
             imageJugadaJugador.setImage(paper);
             String jugadaEnemigo = rival.elegirAtaque();
             if (jugadaEnemigo.equals("papel")) {
@@ -142,19 +144,21 @@ public class NewGameController {
                 imageJugadaEnemic.setImage(pedra);
                 rondasGanadas++;
             }
-
-            actualizarEstadoRondas();
-            verificarFinJuego();
-        } else {
-            disableAllBtns();
-        }
+            // Actualitzem l'estat de les rondes
+            Platform.runLater(() -> {
+                enableAllBtns();
+                actualizarEstadoRondas();
+                verificarFinJuego();
+            });
+        }, 3, TimeUnit.SECONDS);
     }
 
-    public void jugadaTisora(ActionEvent actionEvent) throws InterruptedException {
-        // Verifica si el juego ya ha terminado
-        if (rondasGanadas < 3 && rondasPerdidas < 3) {
-            disableBtnsInTime();
-            //TimeUnit.SECONDS.sleep(2);
+    public void jugadaTisora(ActionEvent actionEvent) {
+        // Desactivem els botons
+        disableAllBtns();
+        // Programem un executor que torni a activar els botons després de 3 segons
+        ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
+        executor.schedule(() -> {
             imageJugadaJugador.setImage(tisora);
             String jugadaEnemigo = rival.elegirAtaque();
             if (jugadaEnemigo.equals("tijeras")) {
@@ -167,12 +171,13 @@ public class NewGameController {
                 imageJugadaEnemic.setImage(paper);
                 rondasGanadas++;
             }
-
-            actualizarEstadoRondas();
-            verificarFinJuego();
-        } else {
-            disableAllBtns();
-        }
+            // Actualitzem l'estat de les rondes
+            Platform.runLater(() -> {
+                enableAllBtns();
+                actualizarEstadoRondas();
+                verificarFinJuego();
+            });
+        }, 3, TimeUnit.SECONDS);
     }
 
     public void disableBtnsInTime() {
@@ -203,6 +208,15 @@ public class NewGameController {
                 tijerasBtn.setDisable(false); // Vuelve a activar el botón
             }, 3, TimeUnit.SECONDS);
         }
+    }
+
+    public void puntuacion(int rondasGanadas, int rondasPerdidas) {
+        int puntos = rondasGanadas * 100 - rondasPerdidas * 50;
+
+        if (puntos < 0) {
+            puntos = 0;
+        }
+        System.out.println(puntos);
     }
 
     @FXML
