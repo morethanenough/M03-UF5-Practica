@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="360.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxproject.NewGameController">
+   <children>
+      <Button fx:id="piedraBtn" layoutX="50.0" layoutY="297.0" mnemonicParsing="false" onAction="#jugadaPedra" text="Piedra" />
+      <Button fx:id="papelBtn" layoutX="117.0" layoutY="297.0" mnemonicParsing="false" onAction="#jugadaPaper" text="Papel" />
+      <Button fx:id="tijerasBtn" layoutX="179.0" layoutY="297.0" mnemonicParsing="false" onAction="#jugadaTisora" text="Tijeras" />
+      <ImageView fx:id="enemyImg" fitHeight="179.0" fitWidth="188.0" layoutX="360.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/img.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="playerImg" fitHeight="179.0" fitWidth="179.0" layoutX="50.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/img_1.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="nombreUsuario" layoutX="50.0" layoutY="94.0" text="Label" />
+      <Label fx:id="winRounds" layoutX="50.0" layoutY="76.0" text="Label" />
+      <Label fx:id="loseRounds" layoutX="360.0" layoutY="75.0" text="Label" />
+      <Label fx:id="enemyName" layoutX="360.0" layoutY="94.0" text="Label" />
+      <ImageView fitHeight="125.0" fitWidth="120.0" layoutX="236.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/img_2.png" />
+         </image></ImageView>
+      <ImageView fx:id="imageJugadaJugador" fitHeight="48.0" fitWidth="48.0" layoutX="236.0" layoutY="273.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imageJugadaEnemic" fitHeight="48.0" fitWidth="48.0" layoutX="308.0" layoutY="273.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="warning" alignment="CENTER" contentDisplay="CENTER" layoutY="14.0" prefHeight="70.0" prefWidth="600.0" text="Label" textAlignment="CENTER">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Label>
+      <Label fx:id="numWinRounds" layoutX="88.0" layoutY="76.0" text="Label" />
+      <Label fx:id="numLoseRounds" layoutX="398.0" layoutY="75.0" text="Label" />
+   </children>
+</AnchorPane>

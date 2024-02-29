@@ -1,6 +1,9 @@
 module com.example.javafxproject {
     requires javafx.controls;
     requires javafx.fxml;
+
+    requires org.json;
+
     requires java.desktop;
 
 
