@@ -9,7 +9,6 @@ import javafx.scene.image.ImageView;
 import model.Enemic;
 import model.Jugador;
 
-import java.util.ArrayList;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -53,25 +52,25 @@ public class GameController {
     Image pedra = new Image("file:" + imgPedra);
     Image tisora = new Image("file:" + imgTisora);
 
-    public GameController() {
+    /*public GameController() {
        this.enemigo = new Enemic();
-    }
+    }*/
 
     @FXML
-    public void initialize() {
+    /*public void initialize() {
         // Asegúrate de que los componentes de la UI estén disponibles aquí
         this.jugador = new Jugador(nombreJugador.getUserName(), "@../../../images/img_1.png");
         nombreUsuario.setText(nombreJugador.getUserName());
         warning.setText("");
         actualizarEstadoRondas();
         actualizarNombreMonstruo();
-    }
+    }*/
 
-    private void actualizarNombreMonstruo() {
+    /*private void actualizarNombreMonstruo() {
         ArrayList<String> monstruos = enemigo.obtenerCincoEnemigos();
         // Suponiendo que quieres mostrar solo el primer monstruo de la lista
         monsterName.setText("Monstruo: " + monstruos.get(0));
-    }
+    }*/
 
     private void actualizarEstadoRondas() {
         winRounds.setText("Rondas ganadas: " + rondasGanadas);

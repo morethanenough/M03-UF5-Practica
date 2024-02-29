@@ -10,6 +10,6 @@
     </padding>
 
     <Label fx:id="welcomeText" text="Introduce tu nombre" />
-   <TextField fx:id="nameInput" />
+    <TextField fx:id="nameInput" />
     <Button onAction="#onButtonClick" text="Jugar" />
 </VBox>

@@ -11,8 +11,7 @@ public class Jugador extends Pj {
      * partidasGanadas: cada cop que el jugador guanyi a tots els enemics s'incrementarà el valor
      * partidasPerdidas: cada cop que el jugador perdi contra un enemic s'incrementarà el valor **/
     public Jugador(String nombreJugador, String fotoJugador){
-        super.name = nombreJugador;
-        super.photos = fotoJugador;
+        super(nombreJugador, fotoJugador);
         this.puntuacion = 0;
         this.partidasGanadas = 0;
         this.partidasPerdidas = 0;
