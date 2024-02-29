@@ -9,7 +9,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import model.Enemic;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import java.io.BufferedInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -84,10 +89,12 @@ public class NewGameController {
         numLoseRounds.setText(String.valueOf(rondasPerdidas));
         if (rondasGanadas == 3) {
             warning.setText("Victory");
+            playWinSound();
             disableAllBtns();
         }
         if (rondasPerdidas == 3) {
             warning.setText("Defeated");
+            playLoseSound();
             disableAllBtns();
         }
     }
@@ -217,6 +224,27 @@ public class NewGameController {
             puntos = 0;
         }
         System.out.println(puntos);
+    }
+
+    private void playSound(String soundFileName) {
+        try {
+            InputStream audioSrc = getClass().getResourceAsStream("/audios/" + soundFileName);
+            InputStream bufferedIn = new BufferedInputStream(audioSrc);
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(bufferedIn);
+            Clip clip = AudioSystem.getClip();
+            clip.open(audioIn);
+            clip.start();
+        } catch (Exception e) {
+            e.printStackTrace(); // Manejo básico de errores
+        }
+    }
+
+    private void playWinSound() {
+        playSound("YouWin.wav");
+    }
+
+    private void playLoseSound() {
+        playSound("YouLoose.wav");
     }
 
     @FXML
