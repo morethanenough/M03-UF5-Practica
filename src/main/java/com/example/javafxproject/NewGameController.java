@@ -247,6 +247,7 @@ public class NewGameController {
         Scene scene = new Scene(fxmlLoader.load(), 600, 360);
         stage.setScene(scene);
         stage.show();
+    }
       
     public void puntuacion(int rondasGanadas, int rondasPerdidas) {
         int puntos = rondasGanadas * 100 - rondasPerdidas * 50;
