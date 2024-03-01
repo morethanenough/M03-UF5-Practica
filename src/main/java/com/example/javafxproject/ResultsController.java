@@ -34,8 +34,6 @@ public class ResultsController {
         Image tempPhoto = new Image("file:" + imgTemp);
         playerImg.setImage(tempPhoto);
     }
-
-
     private void setRival(int i) {
         enemics = DataSingleton.getInstance().getEnemics();
         rival = enemics.get(i);
@@ -49,7 +47,7 @@ public class ResultsController {
         setRival(0);
         setPlayerData();
         if (DataSingleton.getInstance().getStage().getTitle().equals("Paper, Rock and Scissor Contest - Game Won")) {
-            enemyLine.setText("aaaa ganaste");
+            enemyLine.setText(rival.getLineWin());
             resultButton.setText("Siguiente batalla");
             resultButton.setOnAction(e -> {
                 try {
@@ -59,7 +57,7 @@ public class ResultsController {
                 }
             });
         } else {
-            enemyLine.setText("aaaa perdiste");
+            enemyLine.setText(rival.getLineLose());
             resultButton.setText("Ver puntuación");
             resultButton.setOnAction(e -> {
                 try {

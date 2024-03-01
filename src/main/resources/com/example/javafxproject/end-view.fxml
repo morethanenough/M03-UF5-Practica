@@ -19,7 +19,7 @@
             <Font name="Roboto Light" size="32.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="297.0" layoutY="317.0" text="0">
+      <Label fx:id="score" alignment="CENTER" layoutX="297.0" layoutY="317.0" text="0">
          <font>
             <Font name="Roboto Light" size="24.0" />
          </font>
