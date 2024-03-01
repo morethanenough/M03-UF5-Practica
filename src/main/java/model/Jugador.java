@@ -17,8 +17,6 @@ public class Jugador extends Pj {
         this.partidasPerdidas = 0;
     }
 
-    /*TODO: InteliJ no detecta como error this.name o this.photos que provienen de la clase Pj
-       (si hay un error, cambiar esto por super.name y super.photos)*/
     public void setNombre(String nombre) { this.name = nombre; }
     public String getNombre() { return name; }
 
