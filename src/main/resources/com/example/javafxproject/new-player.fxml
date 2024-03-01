@@ -49,9 +49,9 @@
             <Font size="18.0" />
          </font>
       </TextField>
-      <Button layoutX="213.0" layoutY="301.0" mnemonicParsing="false" onAction="#startGame" prefHeight="34.0" prefWidth="174.0" text="PLAY">
+      <Button disable="true" layoutX="213.0" layoutY="301.0" mnemonicParsing="false" onAction="#startGame" prefHeight="34.0" prefWidth="174.0" text="PLAY">
          <font>
-            <Font size="18.0" />
+            <Font name="Roboto Light" size="18.0" />
          </font>
       </Button>
    </children>

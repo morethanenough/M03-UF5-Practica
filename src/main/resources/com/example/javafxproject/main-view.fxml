@@ -16,7 +16,7 @@
          <font>
             <Font name="Roboto Light" size="18.0" />
          </font></Button>
-      <Button disable="true" layoutX="220.0" layoutY="232.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="160.0" text="Ranking">
+      <Button layoutX="220.0" layoutY="232.0" mnemonicParsing="false" onAction="#openRanking" prefHeight="26.0" prefWidth="160.0" text="Ranking">
          <font>
             <Font name="Roboto Light" size="18.0" />
          </font>

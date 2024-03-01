@@ -98,7 +98,7 @@ public class NewGameController {
         }
     }
 
-    public void jugadaPedra(ActionEvent actionEvent, String jugada) throws InterruptedException {
+    public void jugadaPedra(ActionEvent actionEvent) throws InterruptedException {
         // Desactivem els botons
         disableAllBtns();
         // Programem un executor que torni a activar els botons després de 3 segons

@@ -6,20 +6,11 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class JsonHandler {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
             /*String document = new String(Files.readAllBytes(Paths.get("src/main/resources/json/user.json")));
             JSONObject user = new JSONObject(document);
             JSONObject jsonObject = new JSONObject(user.toString());
-            JSONObject monster = new JSONObject();
-
-            String nombre = jsonObject.getString("nombre");
-            String edad = jsonObject.getString("edad");
-            String ciudad = jsonObject.getString("ciudad");
-
-            System.out.println("Nombre: " + nombre);
-            System.out.println("Edad: " + edad);
-            System.out.println("Ciudad: " + ciudad);
 
             String nombre = "Juan";
             String edad = "25";
@@ -29,17 +20,6 @@ public class JsonHandler {
             user.put("edad", edad);
             user.put("ciudad", ciudad);
 
-            String monsterName = "Goblin";
-            String monsterHealth = "100";
-            String monsterAttack = "10";
-            String monsterDefense = "5";
-
-            jsonObject.put("monsterName", monsterName);
-            jsonObject.put("monsterHealth", monsterHealth);
-            jsonObject.put("monsterAttack", monsterAttack);
-            jsonObject.put("monsterDefense", monsterDefense);
-
-            user.put("monster", jsonObject);
 
             try (FileWriter file = new FileWriter("src/main/resources/json/user.json")) {
                 file.write(user.toString());

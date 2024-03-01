@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="360.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxproject.RankingController">
+   <children>
+      <Label layoutX="235.0" layoutY="14.0" text="Ranking">
+         <font>
+            <Font name="Roboto Light" size="36.0" />
+         </font>
+      </Label>
+      <Label fx:id="position1name" layoutX="191.0" layoutY="74.0" text="Label">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="position1points" alignment="CENTER_RIGHT" layoutX="365.0" layoutY="74.0" text="Label" textAlignment="RIGHT">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="position2name" layoutX="191.0" layoutY="94.0" text="Label">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="position2points" alignment="CENTER_RIGHT" layoutX="365.0" layoutY="94.0" text="Label" textAlignment="RIGHT">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="position3name" layoutX="191.0" layoutY="114.0" text="Label">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="position3points" alignment="CENTER_RIGHT" layoutX="365.0" layoutY="114.0" text="Label" textAlignment="RIGHT">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="position4name" layoutX="191.0" layoutY="134.0" text="Label">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="position4points" alignment="CENTER_RIGHT" layoutX="365.0" layoutY="134.0" text="Label" textAlignment="RIGHT">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="position5name" layoutX="191.0" layoutY="154.0" text="Label">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="position5points" alignment="CENTER_RIGHT" layoutX="365.0" layoutY="154.0" text="Label" textAlignment="RIGHT">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="position6name" layoutX="191.0" layoutY="174.0" text="Label">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="position6points" alignment="CENTER_RIGHT" layoutX="365.0" layoutY="174.0" text="Label" textAlignment="RIGHT">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="position7name" layoutX="191.0" layoutY="194.0" text="Label">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="position7points" alignment="CENTER_RIGHT" layoutX="365.0" layoutY="194.0" text="Label" textAlignment="RIGHT">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="position8name" layoutX="191.0" layoutY="214.0" text="Label">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="position8points" alignment="CENTER_RIGHT" layoutX="365.0" layoutY="214.0" text="Label" textAlignment="RIGHT">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="position9name" layoutX="191.0" layoutY="234.0" text="Label">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="position9points" alignment="CENTER_RIGHT" layoutX="365.0" layoutY="234.0" text="Label" textAlignment="RIGHT">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="position10name" layoutX="191.0" layoutY="254.0" text="Label">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="position10points" alignment="CENTER_RIGHT" layoutX="365.0" layoutY="254.0" text="Label" textAlignment="RIGHT">
+         <font>
+            <Font name="Roboto Light" size="14.0" />
+         </font>
+      </Label>
+      <Button layoutX="258.0" layoutY="280.0" mnemonicParsing="false" onAction="#backToMenu" text="Back" textAlignment="CENTER">
+         <font>
+            <Font name="Roboto Light" size="24.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
