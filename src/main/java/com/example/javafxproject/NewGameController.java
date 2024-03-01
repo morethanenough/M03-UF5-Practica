@@ -290,7 +290,8 @@ public class NewGameController {
         } else {
             warning.setText("Final Boss");
         }
-        setRival(0);
+        setRival(DataSingleton.getInstance().getEnemic());
+        System.out.println(DataSingleton.getInstance().getEnemic());
         setPlayerData();
     }
 }

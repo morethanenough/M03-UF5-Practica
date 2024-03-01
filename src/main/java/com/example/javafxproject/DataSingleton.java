@@ -14,6 +14,7 @@ public class DataSingleton {
     private Jugador jugador;
     private ArrayList<Enemic> enemics;
     private Stage stage;
+    private Integer enemic = 0;
 
     private DataSingleton(){}
 
@@ -50,5 +51,11 @@ public class DataSingleton {
     }
     public Stage getStage() {
         return stage;
+    }
+    public void setEnemic(Integer enemic) {
+        this.enemic = enemic;
+    }
+    public Integer getEnemic() {
+        return enemic;
     }
 }
