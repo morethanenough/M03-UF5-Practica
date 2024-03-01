@@ -1,12 +1,1 @@
-{
-  "position9":{"name":"NoName","points":10},
-  "position1":{"name":"NoName","points":20},
-  "position10":{"name":"NoName","points":30},
-  "position2":{"name":"NoName","points":15},
-  "position3":{"name":"NoName","points":0},
-  "position4":{"name":"NoName","points":0},
-  "position5":{"name":"NoName","points":0},
-  "position6":{"name":"NoName","points":0},
-  "position7":{"name":"NoName","points":0},
-  "position8":{"name":"NoName","points":0}
-}
+{"position9":{"name":"NoName","points":0},"position1":{"name":"NoName","points":30},"position10":{"name":"NoName","points":0},"position2":{"name":"NoName","points":20},"position3":{"name":"NoName","points":15},"position4":{"name":"NoName","points":10},"position5":{"name":"NoName","points":0},"position6":{"name":"NoName","points":0},"position7":{"name":"NoName","points":0},"position8":{"name":"NoName","points":0}}

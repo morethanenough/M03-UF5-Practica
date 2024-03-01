@@ -7,11 +7,13 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import model.Ranking;
 import org.json.JSONObject;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.*;
 
 public class RankingController {
     String path = "src/main/resources/json/";
@@ -95,6 +97,74 @@ public class RankingController {
         }
     }
 
+    public void ordenarRanking(String name, int points) {
+        try {
+            // Creem un array d'objectes Ranking
+            ArrayList<Ranking> rankingArrayList = new ArrayList<>();
+            // Creem un objecte JSON amb les dades del ranking
+            String path = "src/main/resources/json/";
+            String file = "ranking.json";
+            JSONObject ranking = null;
+            String readDocument = new String(Files.readAllBytes(Paths.get(path + file)));
+            if (!readDocument.isEmpty()) {
+                ranking = new JSONObject(readDocument);
+            }
+            // Creem un mapa amb les dades del ranking per a poder manipular-les i endreçar-les
+            Map<String, Integer> rankingTable = new HashMap<>();
+            for (int i = 1; i <= ranking.length(); i++) {
+                String positionKey = "position" + i;
+                JSONObject playerRanking = (JSONObject) ranking.get(positionKey);
+                String playerName = (String) playerRanking.get("name");
+                int playerPoints = (int) playerRanking.get("points");
+                rankingArrayList.add(i - 1, new Ranking(positionKey, playerName, playerPoints));
+                rankingTable.put(positionKey, playerPoints);
+            }
+            // Afegim el nou jugador al ranking
+            rankingArrayList.add(new Ranking("position11", name, points));
+            rankingTable.put("position11", points);
+            // Definim un comparador per a comparar pels valors en lloc de les claus
+            Comparator<String> valueComparator = new Comparator<String>() {
+                public int compare(String a, String b) {
+                    int valueA = rankingTable.get(a);
+                    int valueB = rankingTable.get(b);
+                    return Integer.compare(valueB, valueA);
+                }
+            };
+            // Construim un TreeMap endressat pels valors de forma descendent
+            TreeMap<Integer, List<String>> sortedByValueDescending = new TreeMap<>(Comparator.reverseOrder());
+            // Iterar sobre el mapa original y llenar el mapa ordenado
+            for (Map.Entry<String, Integer> entry : rankingTable.entrySet()) {
+                String playerName = entry.getKey();
+                int playerPoints = entry.getValue();
+                sortedByValueDescending.computeIfAbsent(playerPoints, k -> new ArrayList<>()).add(playerName);
+            }
+            List<String> players = new ArrayList<>();
+            // Imprimir el TreeMap ordenado por valores en orden descendente
+            int a = 1;
+            for (Map.Entry<Integer, List<String>> entry : sortedByValueDescending.entrySet()) {
+                int playerPoints = entry.getKey();
+                players = entry.getValue();
+                for (String playerPosition : players) {
+                    System.out.println("Position " + a + ": " + playerPosition + " with " + playerPoints + " points");
+                    String newKey = "position" + a;
+                    int ok = 0;
+                    while (ok == 0) {
+                        for (int i = 0; i < rankingArrayList.size(); i++) {
+                            if (rankingArrayList.get(i).getPosition().equals(playerPosition)) {
+                                ranking.put(newKey, new JSONObject().put("name", rankingArrayList.get(i).getName()).put("points", playerPoints));
+                                ok = 1;
+                            }
+                        }
+                    }
+                    a++;
+                }
+            }
+            // Escriure el ranking ordenat en el fitxer ranking.json
+            Files.write(Paths.get(path + file), ranking.toString().getBytes());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     public void backToMenu(ActionEvent event) throws IOException {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-view.fxml"));

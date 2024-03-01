@@ -8,10 +8,12 @@ import java.nio.file.Paths;
 
 public class Ranking {
 
+    private String position;
     private String name;
     private int points;
 
-    public Ranking(String name, int points){
+    public Ranking(String position, String name, int points){
+        this.position = position;
         this.name = name;
         this.points = points;
     }
@@ -24,25 +26,8 @@ public class Ranking {
     public void setPoints(int points) { this.points = points; }
     public int getPoints() { return points; }
 
-    public void addRanking2Json(Ranking ranking){
+    // setter i getter de posició
+    public void setPosition(String position) { this.position = position; }
+    public String getPosition() { return position; }
 
-    }
-
-    public Ranking[] getRankingFromJson(){
-        String path = "src/main/resources/json/";
-        String file = "ranking.json";
-        String[] ordenedRanking = new String[]{"", ""};
-        try{
-            String document = new String(Files.readAllBytes(Paths.get(path + file)));
-            JSONObject ranking = new JSONObject(document);
-            for(int i = 1; i <= 10; i ++) {
-                String positionKey = "position" + i;
-                JSONObject playerRanking = (JSONObject) ranking.get(positionKey);
-
-            }
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        return null;
-    }
 }
