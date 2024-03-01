@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import model.Jugador;
+import model.Ranking;
 
 import java.io.IOException;
 
@@ -21,8 +22,11 @@ public class EndController {
     @FXML
     private Button quit;
 
+    private RankingController rankingController = new RankingController();
+
     public void initialize() {
         score.setText("" + DataSingleton.getInstance().getJugador().getPuntuacion());
+        rankingController.ordenarRanking(DataSingleton.getInstance().getJugador().getNombre(), DataSingleton.getInstance().getJugador().getPuntuacion());
     }
 
     @FXML
