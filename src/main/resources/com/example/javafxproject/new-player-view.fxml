@@ -5,14 +5,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="360.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxproject.PlayerController">
+<AnchorPane prefHeight="360.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxproject.PlayerController">
    <children>
       <ImageView fitHeight="100.0" fitWidth="200.0" layoutX="70.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../images/dllamas.png" />
          </image>
       </ImageView>
-      <RadioButton fx:id="rb1" layoutX="112.0" layoutY="189.0" mnemonicParsing="false">
+      <RadioButton fx:id="rb1" layoutX="112.0" layoutY="189.0" mnemonicParsing="false" onMouseClicked="#enableDisablePlayBtn">
          <toggleGroup>
             <ToggleGroup fx:id="playerPic" />
          </toggleGroup></RadioButton>
@@ -21,37 +21,37 @@
             <Image url="@../../../images/alejandro.png" />
          </image>
       </ImageView>
-      <RadioButton fx:id="rb2" layoutX="232.0" layoutY="189.0" mnemonicParsing="false" toggleGroup="$playerPic" />
+      <RadioButton fx:id="rb2" layoutX="232.0" layoutY="189.0" mnemonicParsing="false" onMouseClicked="#enableDisablePlayBtn" toggleGroup="$playerPic" />
       <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="310.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../images/quim.png" />
          </image>
       </ImageView>
-      <RadioButton fx:id="rb3" layoutX="352.0" layoutY="189.0" mnemonicParsing="false" toggleGroup="$playerPic" />
+      <RadioButton fx:id="rb3" layoutX="352.0" layoutY="189.0" mnemonicParsing="false" onMouseClicked="#enableDisablePlayBtn" toggleGroup="$playerPic" />
       <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="430.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../images/joan.png" />
          </image>
       </ImageView>
-      <RadioButton fx:id="rb4" layoutX="472.0" layoutY="189.0" mnemonicParsing="false" toggleGroup="$playerPic" />
-      <Label layoutX="159.0" layoutY="21.0" prefHeight="46.0" prefWidth="281.0" text="Choose your fighter">
+      <RadioButton fx:id="rb4" layoutX="472.0" layoutY="189.0" mnemonicParsing="false" onMouseClicked="#enableDisablePlayBtn" toggleGroup="$playerPic" />
+      <Label alignment="CENTER" layoutX="66.0" layoutY="21.0" prefHeight="46.0" prefWidth="466.0" text="Escull el teu lluitador" textAlignment="CENTER">
          <font>
             <Font name="Roboto Light" size="32.0" />
          </font>
       </Label>
-      <Label layoutX="212.0" layoutY="215.0" text="Enter your name">
+      <Label alignment="CENTER" layoutX="74.0" layoutY="215.0" prefHeight="34.0" prefWidth="456.0" text="Introdueix el teu nom">
          <font>
             <Font name="Roboto Light" size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="nameInput" layoutX="212.0" layoutY="261.0" prefHeight="26.0" prefWidth="175.0">
+      <TextField fx:id="nameInput" layoutX="212.0" layoutY="261.0" onKeyTyped="#enableDisablePlayBtn" prefHeight="26.0" prefWidth="175.0">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <Button disable="true" layoutX="213.0" layoutY="301.0" mnemonicParsing="false" onAction="#startGame" prefHeight="34.0" prefWidth="174.0" text="PLAY">
+      <Button fx:id="playGameBtn" disable="true" layoutX="213.0" layoutY="301.0" mnemonicParsing="false" onAction="#startGame" prefHeight="34.0" prefWidth="174.0" text="JUGAR">
          <font>
-            <Font name="Roboto Light" size="18.0" />
+            <Font size="18.0" />
          </font>
       </Button>
    </children>
