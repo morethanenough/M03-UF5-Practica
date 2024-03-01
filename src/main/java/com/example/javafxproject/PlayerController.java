@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
@@ -15,10 +16,12 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.AccessibleObject;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Objects;
 
 public class PlayerController {
 
@@ -33,6 +36,7 @@ public class PlayerController {
     @FXML private RadioButton rb2;
     @FXML private RadioButton rb3;
     @FXML private RadioButton rb4;
+    @FXML private Button playGameBtn;
 
 
     private final ToggleGroup group = new ToggleGroup();
@@ -83,11 +87,20 @@ public class PlayerController {
         user.put("nom", name);
         user.put("foto", playerPic);*/
     }
+    public void enableDisablePlayBtn() {
+        if (group.getSelectedToggle() != null) {
+            if (group.getSelectedToggle().isSelected() && Objects.equals(nameInput.getText(), "")) {
+                playGameBtn.setDisable(true);
+            } else {
+                playGameBtn.setDisable(false);
+            }
+        }
+    }
     public void startGame(ActionEvent event) throws IOException {
         initPlayer();
         initRivals();
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("game2-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("game-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 360);
         stage.setTitle("Paper, Rock and Scissor Contest - Playing");
         stage.setScene(scene);

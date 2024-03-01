@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="abe76981-5317-4842-add5-ac98869f01b9" name="Changes" comment="Alter wait time, change results screen content on win/lose">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javafxproject/ResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javafxproject/ResultsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Enemic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Enemic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javafxproject/results-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/javafxproject/results-view.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="game-view" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2d3haHR1nHMbTogieE6nSUABHQn" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Git.Branch.Popup.ShowAllRemotes&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="abe76981-5317-4842-add5-ac98869f01b9" name="Changes" comment="" />
+      <created>1709242732421</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1709242732421</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Create views and controllers for win/lose screens">
+      <created>1709243796145</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1709243796145</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Change of scene">
+      <created>1709251616803</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1709251616803</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Alter wait time, change results screen content on win/lose">
+      <created>1709288896192</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1709288896192</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Create views and controllers for win/lose screens" />
+    <MESSAGE value="Change of scene" />
+    <MESSAGE value="Alter wait time, change results screen content on win/lose" />
+    <option name="LAST_COMMIT_MESSAGE" value="Alter wait time, change results screen content on win/lose" />
+  </component>
+</project>

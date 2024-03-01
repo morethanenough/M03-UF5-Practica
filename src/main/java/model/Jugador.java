@@ -17,8 +17,6 @@ public class Jugador extends Pj {
         this.partidasPerdidas = 0;
     }
 
-    /*TODO: InteliJ no detecta como error this.name o this.photos que provienen de la clase Pj
-       (si hay un error, cambiar esto por super.name y super.photos)*/
     public void setNombre(String nombre) { this.name = nombre; }
     public String getNombre() { return name; }
 
@@ -35,19 +33,4 @@ public class Jugador extends Pj {
     public int getPartidasPerdidas() { return partidasPerdidas; }
 
     /** mètodes per definir la puntuació calculant les partides perdudes i les guanyades **/
-    public void sumarPuntuacion(int rondasGanadas) {
-        int puntosPorRonda;
-
-        // Si se ganan 3 rondas seguidas, se otorgan 100 puntos
-        if (rondasGanadas == 3) {
-            this.puntuacion += 100;
-        } else if (rondasGanadas >= 10) {
-            this.puntuacion += 10;
-        } else {
-            // Calcular los puntos por ronda en función del número total de rondas ganadas
-            puntosPorRonda = (rondasGanadas - 3) * 10;
-            int puntos = 100 - puntosPorRonda;
-            this.puntuacion += puntos;
-        }
-    }
 }

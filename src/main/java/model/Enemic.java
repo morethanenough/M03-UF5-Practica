@@ -27,6 +27,14 @@ public class Enemic extends Pj{
         }
     }
 
+    public String getLineWin() {
+        return frase1;
+    }
+
+    public String getLineLose() {
+        return frase2;
+    }
+
     /** Random enemigos para luchar **/
     /*public ArrayList<String> obtenerCincoEnemigos(enemigos[]) {
         ArrayList<String>listaEnemigos = new ArrayList<>();
