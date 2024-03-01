@@ -3,10 +3,14 @@ package com.example.javafxproject;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 import model.Enemic;
 
 import javax.sound.sampled.AudioInputStream;
@@ -91,11 +95,21 @@ public class NewGameController {
             warning.setText("Victory");
             playWinSound();
             disableAllBtns();
+            try {
+                winCondition();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         if (rondasPerdidas == 3) {
             warning.setText("Defeated");
             playLoseSound();
             disableAllBtns();
+            try {
+                loseCondition();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -130,7 +144,7 @@ public class NewGameController {
                 actualizarEstadoRondas();
                 verificarFinJuego();
             });
-        }, 3, TimeUnit.SECONDS);
+        }, 1, TimeUnit.SECONDS);
     }
 
     public void jugadaPaper(ActionEvent actionEvent) {
@@ -217,6 +231,23 @@ public class NewGameController {
         }
     }
 
+    public void winCondition() throws IOException {
+        Stage stage = (Stage) nombreUsuario.getScene().getWindow();
+        stage.setTitle("Paper, Rock and Scissor Contest - Game Won");
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("results-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 600, 360);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void loseCondition() throws IOException {
+        Stage stage = (Stage) nombreUsuario.getScene().getWindow();
+        stage.setTitle("Paper, Rock and Scissor Contest - Game Lost");
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("results-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 600, 360);
+        stage.setScene(scene);
+        stage.show();
+      
     public void puntuacion(int rondasGanadas, int rondasPerdidas) {
         int puntos = rondasGanadas * 100 - rondasPerdidas * 50;
 
