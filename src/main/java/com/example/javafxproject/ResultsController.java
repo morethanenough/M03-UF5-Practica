@@ -48,14 +48,26 @@ public class ResultsController {
         setPlayerData();
         if (DataSingleton.getInstance().getStage().getTitle().equals("Paper, Rock and Scissor Contest - Game Won")) {
             enemyLine.setText(rival.getLineWin());
-            resultButton.setText("Siguiente batalla");
-            resultButton.setOnAction(e -> {
-                try {
-                    nextBattle();
-                } catch (IOException ioException) {
-                    ioException.printStackTrace();
-                }
-            });
+            if (DataSingleton.getInstance().getJugador().getPartidasGanadas() != 5) {
+                resultButton.setText("Siguiente batalla");
+                resultButton.setOnAction(e -> {
+                    try {
+                        nextBattle();
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
+                });
+            } else {
+                resultButton.setText("Ver puntuación");
+                resultButton.setOnAction(e -> {
+                    try {
+                        scoreScreen();
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
+                });
+            }
+
         } else {
             enemyLine.setText(rival.getLineLose());
             resultButton.setText("Ver puntuación");
