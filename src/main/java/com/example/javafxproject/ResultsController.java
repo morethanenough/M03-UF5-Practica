@@ -44,7 +44,7 @@ public class ResultsController {
 
     @FXML
     public void initialize() throws IOException {
-        setRival(0);
+        setRival(DataSingleton.getInstance().getEnemic());
         setPlayerData();
         if (DataSingleton.getInstance().getStage().getTitle().equals("Paper, Rock and Scissor Contest - Game Won")) {
             enemyLine.setText(rival.getLineWin());
@@ -83,6 +83,9 @@ public class ResultsController {
     }
 
     public void nextBattle() throws IOException {
+        System.out.println(DataSingleton.getInstance().getEnemic());
+        DataSingleton.getInstance().setEnemic(DataSingleton.getInstance().getEnemic()+1);
+        System.out.println(DataSingleton.getInstance().getEnemic());
         Stage stage = DataSingleton.getInstance().getStage();
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("game2-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 360);
