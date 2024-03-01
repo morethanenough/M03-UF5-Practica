@@ -136,7 +136,7 @@ public class NewGameController {
                 actualizarEstadoRondas();
                 verificarFinJuego();
             });
-        }, 3, TimeUnit.SECONDS);
+        }, 1, TimeUnit.SECONDS);
     }
 
     public void jugadaPaper(ActionEvent actionEvent) throws InterruptedException {
@@ -221,18 +221,18 @@ public class NewGameController {
 
     public void winCondition() throws IOException {
         Stage stage = (Stage) nombreUsuario.getScene().getWindow();
+        stage.setTitle("Paper, Rock and Scissor Contest - Game Won");
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("results-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 360);
-        stage.setTitle("Paper, Rock and Scissor Contest - Game Won");
         stage.setScene(scene);
         stage.show();
     }
 
     public void loseCondition() throws IOException {
         Stage stage = (Stage) nombreUsuario.getScene().getWindow();
+        stage.setTitle("Paper, Rock and Scissor Contest - Game Lost");
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("results-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 360);
-        stage.setTitle("Paper, Rock and Scissor Contest - Game Lost");
         stage.setScene(scene);
         stage.show();
     }

@@ -1,5 +1,6 @@
 package com.example.javafxproject;
 
+import javafx.stage.Stage;
 import model.Enemic;
 import model.Jugador;
 
@@ -12,6 +13,7 @@ public class DataSingleton {
     private String userName;
     private Jugador jugador;
     private ArrayList<Enemic> enemics;
+    private Stage stage;
 
     private DataSingleton(){}
 
@@ -41,5 +43,12 @@ public class DataSingleton {
 
     public void setEnemics(ArrayList<Enemic> enemics) {
         this.enemics = enemics;
+    }
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
+    public Stage getStage() {
+        return stage;
     }
 }

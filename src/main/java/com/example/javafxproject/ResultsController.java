@@ -6,32 +6,64 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import model.Enemic;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class ResultsController {
+
+    private ArrayList<Enemic> enemics = new ArrayList<>();
+    private String imgPath = "src/main/resources/images/";
+    private Enemic rival = null;
+
+    @FXML private ImageView playerImg = new ImageView();
+    @FXML private ImageView enemyImg = new ImageView();
     @FXML
     private Button resultButton;
+    @FXML
+    private Label enemyLine;
 
-    /*
+
+    private void setPlayerData() {
+        String imgTemp = imgPath + DataSingleton.getInstance().getJugador().getPhotos();
+        Image tempPhoto = new Image("file:" + imgTemp);
+        playerImg.setImage(tempPhoto);
+    }
+
+
+    private void setRival(int i) {
+        enemics = DataSingleton.getInstance().getEnemics();
+        rival = enemics.get(i);
+        String tempPhotoPath = imgPath + rival.getPhotos();
+        Image tempPhoto = new Image("file:" + tempPhotoPath);
+        enemyImg.setImage(tempPhoto);
+    }
+
     @FXML
     public void initialize() throws IOException {
-        Stage stage = (Stage) resultButton.getScene().getWindow();
-        if (stage.getTitle().equals("Paper, Rock and Scissor Contest - Game Won")) {
-            resultButton.setText("Continuar");
+        setRival(0);
+        setPlayerData();
+        if (DataSingleton.getInstance().getStage().getTitle().equals("Paper, Rock and Scissor Contest - Game Won")) {
+            enemyLine.setText("aaaa ganaste");
+            resultButton.setText("Siguiente batalla");
             resultButton.setOnAction(e -> {
                 try {
-                    changeOfScene();
+                    nextBattle();
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
             });
         } else {
-            resultButton.setText("Volver al menú principal");
+            enemyLine.setText("aaaa perdiste");
+            resultButton.setText("Ver puntuación");
             resultButton.setOnAction(e -> {
                 try {
-                    backToMenu();
+                    scoreScreen();
                 } catch (IOException ioException) {
                     ioException.printStackTrace();
                 }
@@ -39,10 +71,9 @@ public class ResultsController {
 
         }
     }
-     */
 
-    public void changeOfScene() throws IOException {
-        Stage stage = (Stage) resultButton.getScene().getWindow();
+    public void nextBattle() throws IOException {
+        Stage stage = DataSingleton.getInstance().getStage();
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("game2-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 360);
         stage.setTitle("Paper, Rock and Scissor Contest - Playing");
@@ -50,11 +81,11 @@ public class ResultsController {
         stage.show();
     }
 
-    public void backToMenu() throws IOException {
-        Stage stage = (Stage) resultButton.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 360);
-        stage.setTitle("Paper, Rock and Scissor Contest");
+    public void scoreScreen() throws IOException {
+        Stage stage = DataSingleton.getInstance().getStage();
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("end-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        stage.setTitle("Paper, Rock and Scissor Contest - Scores");
         stage.setScene(scene);
         stage.show();
     }

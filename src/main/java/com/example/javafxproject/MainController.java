@@ -24,6 +24,7 @@ public class MainController {
 
     public void onButtonClick(ActionEvent event) throws IOException {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        DataSingleton.getInstance().setStage(stage);
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("new-player.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 360);
         stage.setTitle("Paper, Rock and Scissor Contest - New Player");
