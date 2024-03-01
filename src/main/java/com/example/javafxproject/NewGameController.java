@@ -3,10 +3,14 @@ package com.example.javafxproject;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 import model.Enemic;
 
 import java.io.IOException;
@@ -85,10 +89,20 @@ public class NewGameController {
         if (rondasGanadas == 3) {
             warning.setText("Victory");
             disableAllBtns();
+            try {
+                winCondition();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         if (rondasPerdidas == 3) {
             warning.setText("Defeated");
             disableAllBtns();
+            try {
+                loseCondition();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -98,7 +112,7 @@ public class NewGameController {
         }
     }
 
-    public void jugadaPedra(ActionEvent actionEvent, String jugada) throws InterruptedException {
+    public void jugadaPedra(ActionEvent actionEvent) throws InterruptedException {
         // Desactivem els botons
         disableAllBtns();
         // Programem un executor que torni a activar els botons després de 3 segons
@@ -203,6 +217,24 @@ public class NewGameController {
                 tijerasBtn.setDisable(false); // Vuelve a activar el botón
             }, 3, TimeUnit.SECONDS);
         }
+    }
+
+    public void winCondition() throws IOException {
+        Stage stage = (Stage) nombreUsuario.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("results-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 600, 360);
+        stage.setTitle("Paper, Rock and Scissor Contest - Game Won");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void loseCondition() throws IOException {
+        Stage stage = (Stage) nombreUsuario.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("results-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 600, 360);
+        stage.setTitle("Paper, Rock and Scissor Contest - Game Lost");
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
