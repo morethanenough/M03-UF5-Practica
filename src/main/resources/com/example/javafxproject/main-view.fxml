@@ -12,16 +12,16 @@
             <Image url="@../../../images/title.png" />
          </image>
       </ImageView>
-      <Button layoutX="220.0" layoutY="189.0" mnemonicParsing="false" onAction="#onButtonClick" prefHeight="26.0" prefWidth="160.0" text="Start Game">
+      <Button layoutX="220.0" layoutY="189.0" mnemonicParsing="false" onAction="#onButtonClick" prefHeight="26.0" prefWidth="160.0" text="Començar Joc">
          <font>
             <Font name="Roboto Light" size="18.0" />
          </font></Button>
-      <Button disable="true" layoutX="220.0" layoutY="232.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="160.0" text="Ranking">
+      <Button disable="true" layoutX="220.0" layoutY="232.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="160.0" text="Rànquing">
          <font>
             <Font name="Roboto Light" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="220.0" layoutY="275.0" mnemonicParsing="false" onAction="#close" prefHeight="26.0" prefWidth="160.0" text="Exit">
+      <Button layoutX="220.0" layoutY="275.0" mnemonicParsing="false" onAction="#close" prefHeight="26.0" prefWidth="160.0" text="Sortir">
          <font>
             <Font name="Roboto Light" size="18.0" />
          </font>
