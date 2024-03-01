@@ -12,6 +12,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import model.Enemic;
+import model.Jugador;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -92,7 +93,7 @@ public class NewGameController {
         //loseRounds.setText("Wins: " + rondasPerdidas);
         numLoseRounds.setText(String.valueOf(rondasPerdidas));
         if (rondasGanadas == 3) {
-            warning.setText("Victory");
+            DataSingleton.getInstance().getJugador().setPartidasGanadas(DataSingleton.getInstance().getJugador().getPartidasGanadas()+1);
             playWinSound();
             disableAllBtns();
             try {
@@ -102,7 +103,6 @@ public class NewGameController {
             }
         }
         if (rondasPerdidas == 3) {
-            warning.setText("Defeated");
             playLoseSound();
             disableAllBtns();
             try {
@@ -255,7 +255,7 @@ public class NewGameController {
         if (puntos < 0) {
             puntos = 0;
         }
-        System.out.println(puntos);
+        DataSingleton.getInstance().getJugador().setPuntuacion(DataSingleton.getInstance().getJugador().getPuntuacion()+puntos);
     }
 
     private void playSound(String soundFileName) {
@@ -285,6 +285,11 @@ public class NewGameController {
         loseRounds.setText("Wins: ");
         numWinRounds.setText(String.valueOf(rondasGanadas));
         numLoseRounds.setText(String.valueOf(rondasPerdidas));
+        if (DataSingleton.getInstance().getJugador().getPartidasGanadas() < 4) {
+        warning.setText("Batalla "+ (DataSingleton.getInstance().getJugador().getPartidasGanadas()+1));
+        } else {
+            warning.setText("Final Boss");
+        }
         setRival(0);
         setPlayerData();
     }
