@@ -23,13 +23,13 @@
       </HBox>
       <HBox layoutX="50.0" layoutY="217.0" prefHeight="73.0" prefWidth="500.0" spacing="25.0">
          <children>
-            <Label fx:id="enemyLine" alignment="CENTER" prefHeight="89.0" prefWidth="500.0" text="[Frase enemigo]" textAlignment="CENTER" wrapText="true">
+            <Label fx:id="enemyLine" alignment="CENTER" prefHeight="89.0" prefWidth="500.0" text="[Frase enemic]" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="Roboto Light" size="18.0" />
                </font></Label>
          </children>
       </HBox>
-      <Button fx:id="resultButton" layoutX="187.0" layoutY="291.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="218.0" text="[CONTINUAR/VOLVER]">
+      <Button fx:id="resultButton" layoutX="187.0" layoutY="291.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="218.0" text="[CONTINUAR/TORNAR]">
          <font>
             <Font size="18.0" />
          </font></Button>

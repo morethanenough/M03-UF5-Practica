@@ -4,17 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a3cc72fc-e10b-4ff8-a16a-f417d31ad187" name="Changes" comment="feat: Add rivals">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/javafxproject/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/javafxproject/SignupController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/javafxproject/login-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/javafxproject/signup-view.fxml" afterDir="false" />
+    <list default="true" id="abe76981-5317-4842-add5-ac98869f01b9" name="Changes" comment="Alter wait time, change results screen content on win/lose">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/javafxproject/CRUD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javafxproject/EndController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javafxproject/EndController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javafxproject/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javafxproject/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javafxproject/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javafxproject/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/javafxproject/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/javafxproject/menu-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/json/ranking.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/json/ranking.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,57 +38,50 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="Use Maven wrapper" />
-        <option name="useMavenConfig" value="true" />
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2d3haHR1nHMbTogieE6nSUABHQn" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Git.Branch.Popup.ShowAllRemotes&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Alumne/Downloads/AC04-NotesAlumne&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.MainApplication.executor": "Run",
+    "Application.MainApplication2.executor": "Run",
+    "Git.Branch.Popup.ShowAllRemotes": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "feature/mysql",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/didac/Documents/DAW/M03/jdbc.jar",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.48390806",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Alumne\Desktop\M03-UF5-Practica\src\main\resources\com\example\javafxproject" />
-      <recent name="C:\Users\Alumne\Desktop\M03-UF5-Practica\src\main\resources\images\rivals" />
-    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.example.javafxproject" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="HelloApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.javafxproject.HelloApplication" />
-      <module name="javafxproject" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.javafxproject.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.HelloApplication" />
-      </list>
-    </recent_temporary>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.1-openjdk-21.0.1-249ae16d76d6-a618e4d4" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a3cc72fc-e10b-4ff8-a16a-f417d31ad187" name="Changes" comment="feat: Add rivals" />
+      <changelist id="abe76981-5317-4842-add5-ac98869f01b9" name="Changes" comment="" />
       <created>1709242732421</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -119,21 +108,7 @@
       <option name="project" value="LOCAL" />
       <updated>1709288896192</updated>
     </task>
-    <task id="LOCAL-00004" summary="feat: Enemy changes every round">
-      <created>1709316495863</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1709316495863</updated>
-    </task>
-    <task id="LOCAL-00005" summary="feat: Add rivals">
-      <created>1709319302503</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1709319302503</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -151,8 +126,6 @@
     <MESSAGE value="Create views and controllers for win/lose screens" />
     <MESSAGE value="Change of scene" />
     <MESSAGE value="Alter wait time, change results screen content on win/lose" />
-    <MESSAGE value="feat: Enemy changes every round" />
-    <MESSAGE value="feat: Add rivals" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Add rivals" />
+    <option name="LAST_COMMIT_MESSAGE" value="Alter wait time, change results screen content on win/lose" />
   </component>
 </project>

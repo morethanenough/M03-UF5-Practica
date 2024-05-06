@@ -7,8 +7,8 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxproject.EndController">
    <children>
-      <Button fx:id="exit" onAction="#quitApp" layoutX="420.0" layoutY="339.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="158.0" text="SALIR DE LA APLICACIÓN" />
-      <Button fx:id="replay" onAction="#replayGame" layoutX="420.0" layoutY="288.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="158.0" text="VOLVER A JUGAR" />
+      <Button fx:id="exit" onAction="#quitApp" layoutX="420.0" layoutY="339.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="158.0" text="SORTIR DE L'APLICACIÓ" />
+      <Button fx:id="replay" onAction="#replayGame" layoutX="420.0" layoutY="288.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="158.0" text="TORNAR AL MENÚ" />
       <Pane layoutX="10.0" layoutY="58.0" prefHeight="200.0" prefWidth="580.0">
          <children>
             <ImageView fitHeight="200.0" fitWidth="244.0" layoutX="190.0" pickOnBounds="true" preserveRatio="true">
@@ -18,7 +18,7 @@
             </ImageView>
          </children>
       </Pane>
-      <Label alignment="CENTER" layoutX="199.0" layoutY="273.0" prefHeight="46.0" prefWidth="200.0" text="Puntuación">
+      <Label alignment="CENTER" layoutX="199.0" layoutY="273.0" prefHeight="46.0" prefWidth="200.0" text="Puntuació">
          <font>
             <Font name="Roboto Light" size="32.0" />
          </font>

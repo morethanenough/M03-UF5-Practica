@@ -49,7 +49,7 @@ public class ResultsController {
         if (DataSingleton.getInstance().getStage().getTitle().equals("Paper, Rock and Scissor Contest - Game Won")) {
             enemyLine.setText(rival.getLineWin());
             if (DataSingleton.getInstance().getJugador().getPartidasGanadas() != 5) {
-                resultButton.setText("Siguiente batalla");
+                resultButton.setText("Següent batalla");
                 resultButton.setOnAction(e -> {
                     try {
                         nextBattle();
@@ -58,7 +58,7 @@ public class ResultsController {
                     }
                 });
             } else {
-                resultButton.setText("Ver puntuación");
+                resultButton.setText("Veure puntuacions");
                 resultButton.setOnAction(e -> {
                     try {
                         scoreScreen();
@@ -70,7 +70,7 @@ public class ResultsController {
 
         } else {
             enemyLine.setText(rival.getLineLose());
-            resultButton.setText("Ver puntuación");
+            resultButton.setText("Veure puntuacions");
             resultButton.setOnAction(e -> {
                 try {
                     scoreScreen();
@@ -87,7 +87,7 @@ public class ResultsController {
         DataSingleton.getInstance().setEnemic(DataSingleton.getInstance().getEnemic()+1);
         System.out.println(DataSingleton.getInstance().getEnemic());
         Stage stage = DataSingleton.getInstance().getStage();
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("game2-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("game-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 360);
         stage.setTitle("Paper, Rock and Scissor Contest - Playing");
         stage.setScene(scene);

@@ -34,12 +34,12 @@
          </image>
       </ImageView>
       <RadioButton fx:id="rb4" layoutX="472.0" layoutY="189.0" mnemonicParsing="false" onMouseClicked="#enableDisablePlayBtn" toggleGroup="$playerPic" />
-      <Label layoutX="159.0" layoutY="21.0" prefHeight="46.0" prefWidth="281.0" text="Choose your fighter">
+      <Label alignment="CENTER" layoutX="66.0" layoutY="21.0" prefHeight="46.0" prefWidth="466.0" text="Escull el teu lluitador" textAlignment="CENTER">
          <font>
             <Font name="Roboto Light" size="32.0" />
          </font>
       </Label>
-      <Label layoutX="212.0" layoutY="215.0" text="Enter your name">
+      <Label alignment="CENTER" layoutX="74.0" layoutY="215.0" prefHeight="34.0" prefWidth="456.0" text="Introdueix el teu nom">
          <font>
             <Font name="Roboto Light" size="24.0" />
          </font>
@@ -49,7 +49,7 @@
             <Font size="18.0" />
          </font>
       </TextField>
-      <Button fx:id="playGameBtn" disable="true" layoutX="213.0" layoutY="301.0" mnemonicParsing="false" onAction="#startGame" prefHeight="34.0" prefWidth="174.0" text="PLAY">
+      <Button fx:id="playGameBtn" disable="true" layoutX="213.0" layoutY="301.0" mnemonicParsing="false" onAction="#startGame" prefHeight="34.0" prefWidth="174.0" text="JUGAR">
          <font>
             <Font size="18.0" />
          </font>
