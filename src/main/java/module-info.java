@@ -5,6 +5,8 @@ module com.example.javafxproject {
     requires org.json;
 
     requires java.desktop;
+    requires java.sql;
+    requires jdbc;
 
 
     opens com.example.javafxproject to javafx.fxml;
