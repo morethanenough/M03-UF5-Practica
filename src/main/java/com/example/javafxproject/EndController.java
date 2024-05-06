@@ -32,7 +32,7 @@ public class EndController {
     @FXML
     protected void replayGame(ActionEvent actionEvent) throws IOException {
         Stage stage = DataSingleton.getInstance().getStage();
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("menu-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 360);
         stage.setTitle("Paper, Rock and Scissor Contest");
         stage.setScene(scene);

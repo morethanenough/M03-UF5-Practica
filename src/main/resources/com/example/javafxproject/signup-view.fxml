@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxproject.SignupController">
+   <children>
+      <Button layoutX="226.0" layoutY="249.0" mnemonicParsing="false" onAction="#onButtonClick" prefHeight="57.0" prefWidth="147.0" text="Sign Up">
+         <font>
+            <Font name="Roboto Light" size="18.0" />
+         </font>
+      </Button>
+      <TextField layoutX="196.0" layoutY="57.0" prefHeight="25.0" prefWidth="209.0" />
+      <Label layoutX="197.0" layoutY="30.0" text="Username">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="197.0" layoutY="98.0" text="Password">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Hyperlink layoutX="195.0" layoutY="215.0" onAction="#goToLogin" text="Login" />
+      <PasswordField layoutX="196.0" layoutY="124.0" prefHeight="25.0" prefWidth="209.0" />
+      <PasswordField layoutX="195.0" layoutY="184.0" prefHeight="25.0" prefWidth="209.0" />
+      <Label layoutX="195.0" layoutY="157.0" text="Confirm Password">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

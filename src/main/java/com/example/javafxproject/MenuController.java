@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class MainController {
+public class MenuController {
 
     @FXML
     protected void close() throws IOException {

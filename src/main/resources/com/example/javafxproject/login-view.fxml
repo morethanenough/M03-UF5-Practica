@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxproject.LoginController">
+   <children>
+      <Button layoutX="226.0" layoutY="243.0" mnemonicParsing="false" onAction="#onButtonClick" prefHeight="57.0" prefWidth="147.0" text="Login">
+         <font>
+            <Font name="Roboto Light" size="18.0" />
+         </font>
+      </Button>
+      <TextField layoutX="195.0" layoutY="87.0" prefHeight="25.0" prefWidth="209.0" />
+      <TextField layoutX="196.0" layoutY="153.0" prefHeight="25.0" prefWidth="209.0" />
+      <Label layoutX="196.0" layoutY="60.0" text="Username">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="196.0" layoutY="127.0" text="Password">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Hyperlink layoutX="195.0" layoutY="185.0" onAction="#goToSignup" text="Sign up" />
+   </children>
+</AnchorPane>
