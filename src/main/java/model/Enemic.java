@@ -1,5 +1,10 @@
 package model;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class Enemic extends Pj{
     private String frase1;
     private String frase2;
@@ -42,6 +47,25 @@ public class Enemic extends Pj{
         Collections.shuffle(listaEnemigos);
         return new ArrayList<>(listaEnemigos.subList(0, 4));
     }*/
+
+    public static ResultSet readRivals() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/m03","root","");
+            String query = "SELECT * FROM rivals";
+            ResultSet result = con.createStatement().executeQuery(query);
+            if (result != null) {
+                return result;
+            } else {
+                System.out.println("Failed to connect to the database");
+            }
+            con.close();
+        } catch (SQLException | ClassNotFoundException e) {
+            System.out.println("An error occurred. Maybe user/password is invalid");
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
 
 
