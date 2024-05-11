@@ -15,6 +15,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 import java.sql.ResultSet;
+import model.Game;
 
 public class RankingController {
     String path = "src/main/resources/json/";
@@ -65,7 +66,7 @@ public class RankingController {
         position10name.setText(null);
         position10points.setText(null);
         try {
-            ResultSet rs = CRUD.readGames(); // Asumimos que CRUD.readGames() es accesible y correcto.
+            ResultSet rs = Game.readGames(); // Asumimos que CRUD.readGames() es accesible y correcto.
             int i = 1; // Comienza desde 1 para alinear con tus cases.
             while (rs.next() && i <= 10) { // Asegura que solo lee los primeros 10 registros
                 String name = rs.getString("name");
