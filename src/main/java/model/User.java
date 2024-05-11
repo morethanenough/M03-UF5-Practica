@@ -1,5 +1,7 @@
 package model;
 
+import com.example.javafxproject.DataSingleton;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -41,6 +43,7 @@ public class User {
             stm.setString(2, password);
             ResultSet result = stm.executeQuery();
             if (result.next()) {
+                DataSingleton.getInstance().setId_user(result.getInt("id"));
                 return result.getInt("id");
             } else {
                 return 0;

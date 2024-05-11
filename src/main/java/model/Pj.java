@@ -2,16 +2,16 @@ package model;
 
 public abstract class Pj {
     protected String name;
-    protected String photos;
+    protected int id_foto;
 
-    public Pj(String name, String photos) {
+    public Pj(String name, int id_foto) {
         this.name = name;
-        this.photos = photos;
+        this.id_foto = id_foto;
     }
 
     public void setName(String name) { this.name = name; }
     public String getName() { return name; }
 
-    public void setPhotos(String photos) { this.photos = photos; }
-    public String getPhotos() { return photos; }
+    public void setPhotos(int id_foto) { this.id_foto = id_foto; }
+    public int getPhotos() { return id_foto; }
 }

@@ -1,5 +1,7 @@
 package model;
 
+import com.example.javafxproject.DataSingleton;
+
 import java.sql.*;
 
 public class Game {
@@ -84,8 +86,9 @@ public class Game {
             stm.setInt(5, lost_rounds);
             stm.setInt(6, points);
             stm.executeUpdate();
-            int id = stm.getGeneratedKeys().getInt(1);
+            int id = getLastId();
             con.close();
+            DataSingleton.getInstance().setGameId(id);
             return id;
         } catch (SQLException | ClassNotFoundException e) {
             System.out.println("An error occurred. Maybe user/password is invalid");
@@ -94,18 +97,67 @@ public class Game {
         return 0;
     }
 
-    public static boolean updateGame (int id, int win_rounds, int lost_rounds) {
+    public static ResultSet getGame(int id) {
         try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/m03","root","");
+            String query = "SELECT * FROM game WHERE id = ?";
+            PreparedStatement stm = con.prepareStatement(query);
+            stm.setInt(1, id);
+            ResultSet result = stm.executeQuery();
+            if (result != null) {
+                return result;
+            } else {
+                System.out.println("Failed to connect to the database");
+            }
+            con.close();
+        } catch (SQLException | ClassNotFoundException e) {
+            System.out.println("An error occurred. Maybe user/password is invalid");
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static int getLastId() {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/m03","root","");
+            String query = "SELECT * FROM game ORDER BY id DESC LIMIT 1";
+            ResultSet rs = con.createStatement().executeQuery(query);
+            if (rs.next()) {
+                return rs.getInt("id");
+            } else {
+                System.out.println("Failed to connect to the database");
+            }
+            con.close();
+        } catch (SQLException | ClassNotFoundException e) {
+            System.out.println("An error occurred. Maybe user/password is invalid");
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public static boolean updateGame (int id, int win_rounds, int lost_rounds) {
+        int totalWins = 0;
+        int totalLoses = 0;
+        int totalPoints = 0;
+        try {
+            System.out.println("id: " + id + " win_rounds: " + win_rounds + " lost_rounds: " + lost_rounds);
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/m03","root","");
             //  Recuperem les dades del joc en curs
             String query = "SELECT * FROM game WHERE id = ?";
             PreparedStatement stm = con.prepareStatement(query);
             stm.setInt(1, id);
-            ResultSet game = stm.executeQuery();
-            int totalWins = game.getInt("win_rounds") + win_rounds;
-            int totalLoses = game.getInt("lost_rounds") + lost_rounds;
-            int totalPoints = (totalWins * 100) - (totalLoses * 50);
+            ResultSet rs = stm.executeQuery();
+            if (rs.next()) {
+                totalWins = rs.getInt("win_rounds") + win_rounds;
+                totalLoses = rs.getInt("lost_rounds") + lost_rounds;
+            }
+            totalPoints = (totalWins * 100) - (totalLoses * 50);
+            if (totalPoints < 0) {
+                totalPoints = 0;
+            }
             // Actualitzem les dades del joc en curs
             String query2 = "UPDATE game SET win_rounds = ?, lost_rounds = ?, points = ? WHERE id = ?";
             PreparedStatement stm2 = con.prepareStatement(query2);
@@ -117,6 +169,7 @@ public class Game {
             con.close();
             return true;
         } catch (SQLException | ClassNotFoundException e) {
+            System.out.println(e.getMessage());
             return false;
         }
     }

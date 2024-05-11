@@ -5,12 +5,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import model.Enemic;
+import model.Game;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -25,8 +27,7 @@ import java.util.concurrent.TimeUnit;
 
 public class GameController {
 
-    private ArrayList<Enemic> enemics = new ArrayList<>();
-    private String imgPath = "src/main/resources/images/";
+    private final String imgPath = "src/main/resources/images/";
     private int rondasGanadas = 0;
     private int rondasPerdidas = 0;
     private Enemic rival = null;
@@ -71,20 +72,20 @@ public class GameController {
 
 
     public void setRival(int i) {
-        enemics = DataSingleton.getInstance().getEnemics();
+        ArrayList<Enemic> enemics = DataSingleton.getInstance().getEnemics();
         rival = enemics.get(i);
         System.out.println(rival.getName());
         enemyName.setText(rival.getName());
-        String tempPhotoPath = imgPath + rival.getPhotos();
+        String tempPhotoPath = imgPath + PicController.getPic(rival.getFoto());
         Image tempPhoto = new Image("file:" + tempPhotoPath);
         enemyImg.setImage(tempPhoto);
     }
 
     public void setPlayerData() {
-        String imgTemp = imgPath + DataSingleton.getInstance().getJugador().getPhotos();
+        String imgTemp = imgPath + PicController.getPic(DataSingleton.getInstance().getGame().getId_foto());
         Image tempPhoto = new Image("file:" + imgTemp);
         playerImg.setImage(tempPhoto);
-        nombreUsuario.setText(DataSingleton.getInstance().getJugador().getName());
+        nombreUsuario.setText(DataSingleton.getInstance().getGame().getName());
     }
 
     public void disableAllBtns() {
@@ -105,7 +106,7 @@ public class GameController {
         //loseRounds.setText("Wins: " + rondasPerdidas);
         numLoseRounds.setText(String.valueOf(rondasPerdidas));
         if (rondasGanadas == 3) {
-            DataSingleton.getInstance().getJugador().setPartidasGanadas(DataSingleton.getInstance().getJugador().getPartidasGanadas() + 1);
+            DataSingleton.getInstance().getGame().setWin_rounds(DataSingleton.getInstance().getGame().getWin_rounds() + 1);
             playWinSound();
             disableAllBtns();
             ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
@@ -133,6 +134,7 @@ public class GameController {
                 });
             }, 2, TimeUnit.SECONDS);
         }
+
     }
 
     private void verificarFinJuego() {
@@ -143,6 +145,9 @@ public class GameController {
     }
 
     public void jugadaPedra(ActionEvent actionEvent) throws InterruptedException {
+        int gameId = DataSingleton.getInstance().getGameId();
+        int lostRounds = DataSingleton.getInstance().getGame().getLost_rounds();
+        int winRounds = DataSingleton.getInstance().getGame().getWin_rounds();
         // Desactivem els botons
         disableAllBtns();
         // Programem un executor que torni a activar els botons després de 3 segons
@@ -156,9 +161,13 @@ public class GameController {
             } else if (jugadaEnemigo.equals("papel")) {
                 imageJugadaEnemic.setImage(paper);
                 rondasPerdidas++;
+                DataSingleton.getInstance().getGame().setLost_rounds(lostRounds + 1);
+                Game.updateGame(gameId, 0, 1);
             } else { // jugadaEnemigo es "tijeras"
                 imageJugadaEnemic.setImage(tisora);
                 rondasGanadas++;
+                DataSingleton.getInstance().getGame().setWin_rounds(winRounds + 1);
+                Game.updateGame(gameId, 1, 0);
             }
             // Actualitzem l'estat de les rondes
             Platform.runLater(() -> {
@@ -170,6 +179,9 @@ public class GameController {
     }
 
     public void jugadaPaper(ActionEvent actionEvent) {
+        int gameId = DataSingleton.getInstance().getGameId();
+        int lostRounds = DataSingleton.getInstance().getGame().getLost_rounds();
+        int winRounds = DataSingleton.getInstance().getGame().getWin_rounds();
         // Desactivem els botons
         disableAllBtns();
         // Programem un executor que torni a activar els botons després de 3 segons
@@ -183,9 +195,13 @@ public class GameController {
             } else if (jugadaEnemigo.equals("tijeras")) {
                 imageJugadaEnemic.setImage(tisora);
                 rondasPerdidas++;
+                DataSingleton.getInstance().getGame().setLost_rounds(lostRounds + 1);
+                Game.updateGame(gameId, 0, 1);
             } else { // jugadaEnemigo es "piedra"
                 imageJugadaEnemic.setImage(pedra);
                 rondasGanadas++;
+                DataSingleton.getInstance().getGame().setWin_rounds(winRounds + 1);
+                Game.updateGame(gameId, 1, 0);
             }
             // Actualitzem l'estat de les rondes
             Platform.runLater(() -> {
@@ -197,6 +213,9 @@ public class GameController {
     }
 
     public void jugadaTisora(ActionEvent actionEvent) {
+        int gameId = DataSingleton.getInstance().getGameId();
+        int lostRounds = DataSingleton.getInstance().getGame().getLost_rounds();
+        int winRounds = DataSingleton.getInstance().getGame().getWin_rounds();
         // Desactivem els botons
         disableAllBtns();
         // Programem un executor que torni a activar els botons després de 3 segons
@@ -210,9 +229,13 @@ public class GameController {
             } else if (jugadaEnemigo.equals("piedra")) {
                 imageJugadaEnemic.setImage(pedra);
                 rondasPerdidas++;
+                DataSingleton.getInstance().getGame().setWin_rounds(winRounds + 1);
+                Game.updateGame(gameId, 0, 1);
             } else { // jugadaEnemigo es "papel"
                 imageJugadaEnemic.setImage(paper);
                 rondasGanadas++;
+                DataSingleton.getInstance().getGame().setLost_rounds(lostRounds + 1);
+                Game.updateGame(gameId, 1, 0);
             }
             // Actualitzem l'estat de les rondes
             Platform.runLater(() -> {
@@ -277,7 +300,8 @@ public class GameController {
         if (puntos < 0) {
             puntos = 0;
         }
-        DataSingleton.getInstance().getJugador().setPuntuacion(DataSingleton.getInstance().getJugador().getPuntuacion() + puntos);
+        DataSingleton.getInstance().getGame().setPoints(DataSingleton.getInstance().getGame().getPoints() + puntos);
+
     }
 
     private void playSound(String soundFileName) {
@@ -307,8 +331,8 @@ public class GameController {
         loseRounds.setText("Victòries: ");
         numWinRounds.setText(String.valueOf(rondasGanadas));
         numLoseRounds.setText(String.valueOf(rondasPerdidas));
-        if (DataSingleton.getInstance().getJugador().getPartidasGanadas() < 4) {
-            warning.setText("Batalla " + (DataSingleton.getInstance().getJugador().getPartidasGanadas() + 1));
+        if (DataSingleton.getInstance().getPartida() < 4) {
+            warning.setText("Batalla " + (DataSingleton.getInstance().getPartida() + 1));
         } else {
             warning.setText("Final Boss");
         }
