@@ -31,11 +31,11 @@ public class User {
     }
 
     // Mètode per a fer login que retorna l'id de l'usuari o 0 si no existeix o l'usuari o la contrasenya són incorrectes
-    public int login(String name, String password) {
+    public static int login(String name, String password) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/m03", "root", "");
-            String query = "SELECT * FROM user WHERE name = ? AND password = ?";
+            String query = "SELECT * FROM user WHERE name = ? AND pass = ?";
             PreparedStatement stm = con.prepareStatement(query);
             stm.setString(1, name);
             stm.setString(2, password);
@@ -52,11 +52,11 @@ public class User {
         return 0;
     }
 
-    public boolean createUser(String name, String password) {
+    public static boolean createUser(String name, String password) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/m03", "root", "");
-            String query = "INSERT INTO user (name, admin, password) VALUES (?, ?, ?)";
+            String query = "INSERT INTO user (name, admin, pass) VALUES (?, ?, ?)";
             PreparedStatement stm = con.prepareStatement(query);
             stm.setString(1, name);
             stm.setString(2, "0");
@@ -69,7 +69,7 @@ public class User {
         }
     }
 
-    public ResultSet readUser() {
+    public static ResultSet readUser() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/m03", "root", "");
@@ -88,7 +88,7 @@ public class User {
         return null;
     }
 
-    public boolean deleteUser(int id) {
+    public static boolean deleteUser(int id) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/m03", "root", "");
