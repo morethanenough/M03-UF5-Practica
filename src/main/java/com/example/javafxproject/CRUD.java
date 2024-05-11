@@ -77,7 +77,7 @@ public class CRUD {
         }
     }
 
-    public ResultSet readGames() {
+    public static ResultSet readGames() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/m03","root","");
