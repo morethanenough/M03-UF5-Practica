@@ -69,7 +69,7 @@ public class User {
         }
     }
 
-    public ResultSet readUser() {
+    public static ResultSet readUser() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/m03", "root", "");
@@ -88,17 +88,18 @@ public class User {
         return null;
     }
 
-    public boolean deleteUser(int id) {
+    public static boolean deleteUser(String name) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/m03", "root", "");
-            String query = "DELETE FROM user WHERE id = ?";
+            String query = "DELETE FROM user WHERE name = ?";
             PreparedStatement stm = con.prepareStatement(query);
-            stm.setInt(1, id);
+            stm.setString(1, name);
             stm.executeUpdate();
             con.close();
             return true;
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             return false;
         }
     }

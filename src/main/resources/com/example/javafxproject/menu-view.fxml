@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxproject.MenuController">
+<AnchorPane fx:id="admin" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxproject.MenuController">
    <children>
       <ImageView fitHeight="150.0" fitWidth="570.0" layoutX="27.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -16,12 +16,17 @@
          <font>
             <Font name="Roboto Light" size="18.0" />
          </font></Button>
-      <Button onAction="#openRanking" layoutX="220.0" layoutY="232.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="160.0" text="Rànquing">
+      <Button layoutX="220.0" layoutY="232.0" mnemonicParsing="false" onAction="#openRanking" prefHeight="26.0" prefWidth="160.0" text="Rànquing">
          <font>
             <Font name="Roboto Light" size="18.0" />
          </font>
       </Button>
       <Button layoutX="220.0" layoutY="275.0" mnemonicParsing="false" onAction="#close" prefHeight="26.0" prefWidth="160.0" text="Sortir">
+         <font>
+            <Font name="Roboto Light" size="18.0" />
+         </font>
+      </Button>
+      <Button disable="true" layoutX="220.0" layoutY="319.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="160.0" text="Administració">
          <font>
             <Font name="Roboto Light" size="18.0" />
          </font>
