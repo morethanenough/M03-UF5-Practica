@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
+import java.sql.ResultSet;
 
 public class RankingController {
     String path = "src/main/resources/json/";
@@ -42,55 +43,76 @@ public class RankingController {
     @FXML private Label position10points;
 
     @FXML
-    public void initialize() throws IOException {
-        try{
-            String document = new String(Files.readAllBytes(Paths.get(path + file)));
-            JSONObject ranking = new JSONObject(document);
-            for(int i = 1; i <= 10; i ++) {
-                String positionKey = "position" + i;
-                JSONObject playerRanking = (JSONObject) ranking.get(positionKey);
-                switch (i){
+    public void initialize() {
+        position1name.setText(null);
+        position1points.setText(null);
+        position2name.setText(null);
+        position2points.setText(null);
+        position3name.setText(null);
+        position3points.setText(null);
+        position4name.setText(null);
+        position4points.setText(null);
+        position5name.setText(null);
+        position5points.setText(null);
+        position6name.setText(null);
+        position6points.setText(null);
+        position7name.setText(null);
+        position7points.setText(null);
+        position8name.setText(null);
+        position8points.setText(null);
+        position9name.setText(null);
+        position9points.setText(null);
+        position10name.setText(null);
+        position10points.setText(null);
+        try {
+            ResultSet rs = CRUD.readGames(); // Asumimos que CRUD.readGames() es accesible y correcto.
+            int i = 1; // Comienza desde 1 para alinear con tus cases.
+            while (rs.next() && i <= 10) { // Asegura que solo lee los primeros 10 registros
+                String name = rs.getString("name");
+                int points = rs.getInt("points");
+                switch (i) {
                     case 1:
-                        position1name.setText((String) playerRanking.get("name"));
-                        position1points.setText((String.valueOf(playerRanking.get("points"))));
+                        position1name.setText(name);
+                        position1points.setText(String.valueOf(points));
                         break;
                     case 2:
-                        position2name.setText((String) playerRanking.get("name"));
-                        position2points.setText((String.valueOf(playerRanking.get("points"))));
+                        position2name.setText(name);
+                        position2points.setText(String.valueOf(points));
                         break;
                     case 3:
-                        position3name.setText((String) playerRanking.get("name"));
-                        position3points.setText((String.valueOf(playerRanking.get("points"))));
+                        position3name.setText(name);
+                        position3points.setText(String.valueOf(points));
                         break;
                     case 4:
-                        position4name.setText((String) playerRanking.get("name"));
-                        position4points.setText((String.valueOf(playerRanking.get("points"))));
+                        position4name.setText(name);
+                        position4points.setText(String.valueOf(points));
                         break;
                     case 5:
-                        position5name.setText((String) playerRanking.get("name"));
-                        position5points.setText((String.valueOf(playerRanking.get("points"))));
+                        position5name.setText(name);
+                        position5points.setText(String.valueOf(points));
                         break;
                     case 6:
-                        position6name.setText((String) playerRanking.get("name"));
-                        position6points.setText((String.valueOf(playerRanking.get("points"))));
+                        position6name.setText(name);
+                        position6points.setText(String.valueOf(points));
                         break;
                     case 7:
-                        position7name.setText((String) playerRanking.get("name"));
-                        position7points.setText((String.valueOf(playerRanking.get("points"))));
+                        position7name.setText(name);
+                        position7points.setText(String.valueOf(points));
                         break;
                     case 8:
-                        position8name.setText((String) playerRanking.get("name"));
-                        position8points.setText((String.valueOf(playerRanking.get("points"))));
+                        position8name.setText(name);
+                        position8points.setText(String.valueOf(points));
                         break;
                     case 9:
-                        position9name.setText((String) playerRanking.get("name"));
-                        position9points.setText((String.valueOf(playerRanking.get("points"))));
+                        position9name.setText(name);
+                        position9points.setText(String.valueOf(points));
                         break;
                     case 10:
-                        position10name.setText((String) playerRanking.get("name"));
-                        position10points.setText((String.valueOf(playerRanking.get("points"))));
+                        position10name.setText(name);
+                        position10points.setText(String.valueOf(points));
                         break;
                 }
+                i++;
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -167,7 +189,7 @@ public class RankingController {
     }
     public void backToMenu(ActionEvent event) throws IOException {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("menu-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 360);
         stage.setTitle("Paper, Rock and Scissor Contest");
         stage.setScene(scene);
