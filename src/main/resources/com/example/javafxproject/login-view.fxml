@@ -11,8 +11,8 @@
             <Font name="Roboto Light" size="18.0" />
          </font>
       </Button>
-      <TextField layoutX="195.0" layoutY="87.0" prefHeight="25.0" prefWidth="209.0" />
-      <TextField layoutX="196.0" layoutY="153.0" prefHeight="25.0" prefWidth="209.0" />
+      <TextField fx:id="textField" layoutX="195.0" layoutY="87.0" prefHeight="25.0" prefWidth="209.0" />
+      <PasswordField fx:id="passwordField" layoutX="196.0" layoutY="153.0" prefHeight="25.0" prefWidth="209.0" />
       <Label layoutX="196.0" layoutY="60.0" text="Username">
          <font>
             <Font size="18.0" />
@@ -24,5 +24,6 @@
          </font>
       </Label>
       <Hyperlink layoutX="195.0" layoutY="185.0" onAction="#goToSignup" text="Sign up" />
+      <Label fx:id="errorLabel" alignment="TOP_CENTER" layoutX="79.0" layoutY="307.0" prefHeight="51.0" prefWidth="439.0" textFill="#ef0909" wrapText="true" />
    </children>
 </AnchorPane>
