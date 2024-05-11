@@ -38,7 +38,7 @@ public class SignupController {
                 stage.setScene(scene);
                 stage.show();
             } else {
-                errorLabel.setText("User couldn't be created. It may already exist, so try another name." + textField.getText() + passwordField.getText() + confirmPasswordField.getText());
+                errorLabel.setText("User couldn't be created. It may already exist, so try another name.");
             }
         }
     }
