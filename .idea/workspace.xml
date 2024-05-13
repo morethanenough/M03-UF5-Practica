@@ -43,6 +43,13 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -132,12 +139,13 @@
       <option name="project" value="LOCAL" />
       <updated>1709288896192</updated>
     </task>
-    <task id="LOCAL-00004" summary="Ranking with ddbb works well">
-      <created>1715422778055</created>
+    <task id="LOCAL-00004" summary="Modificació del model USER configurant els mètodes com STATIC">
+      <option name="closed" value="true" />
+      <created>1715424225811</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1715422778055</updated>
+      <updated>1715424225811</updated>
     </task>
     <option name="localTasksCounter" value="5" />
     <servers />
@@ -157,17 +165,7 @@
     <MESSAGE value="Create views and controllers for win/lose screens" />
     <MESSAGE value="Change of scene" />
     <MESSAGE value="Alter wait time, change results screen content on win/lose" />
-    <MESSAGE value="Ranking with ddbb works well" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ranking with ddbb works well" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.NullPointerException" package="java.lang" />
-          <option name="timeStamp" value="1" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Modificació del model USER configurant els mètodes com STATIC" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modificació del model USER configurant els mètodes com STATIC" />
   </component>
 </project>

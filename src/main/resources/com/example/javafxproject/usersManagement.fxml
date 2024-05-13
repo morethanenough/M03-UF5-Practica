@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="360.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.javafxproject.AdminController">
+   <children>
+      <Label layoutX="143.0" layoutY="14.0" text="Administrar Usuaris">
+         <font>
+            <Font name="Roboto Light" size="36.0" />
+         </font>
+      </Label>
+      <Button layoutX="258.0" layoutY="280.0" mnemonicParsing="false" onAction="#backToMenu" text="Back" textAlignment="CENTER">
+         <font>
+            <Font name="Roboto Light" size="24.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="selectUser" layoutX="143.0" layoutY="125.0" prefHeight="25.0" prefWidth="315.0" promptText="Escull un usuari" />
+      <Button layoutX="226.0" layoutY="187.0" mnemonicParsing="false" onAction="#deleteUser" prefHeight="49.0" prefWidth="148.0" text="ELIMINAR">
+         <font>
+            <Font name="Roboto Light" size="24.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
