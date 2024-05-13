@@ -32,9 +32,9 @@ public class SignupController {
             if (User.createUser(textField.getText(), passwordField.getText())) {
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 DataSingleton.getInstance().setStage(stage);
-                FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("menu-view.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("login-view.fxml"));
                 Scene scene = new Scene(fxmlLoader.load(), 600, 360);
-                stage.setTitle("Paper, Rock and Scissor Contest - Main Menu");
+                stage.setTitle("Paper, Rock and Scissor Contest - Login");
                 stage.setScene(scene);
                 stage.show();
             } else {
