@@ -42,10 +42,11 @@ public class User {
             stm.setString(1, name);
             stm.setString(2, password);
             ResultSet result = stm.executeQuery();
-            con.close();
             if (result.next()) {
                 DataSingleton.getInstance().setId_user(result.getInt("id"));
-                return result.getInt("id");
+                int id = result.getInt("id");
+                con.close();
+                return id;
             } else {
                 return 0;
             }
@@ -100,9 +101,10 @@ public class User {
             PreparedStatement stm = con.prepareStatement(query);
             stm.setInt(1, id);
             ResultSet admin = stm.executeQuery();
-            con.close();
             if (admin.next()) {
-                return admin.getInt("admin");
+                int result = admin.getInt("admin");
+                con.close();
+                return result;
             } else {
                 return 0;
             }
