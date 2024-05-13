@@ -17,27 +17,23 @@ import java.util.ArrayList;
 
 public class ResultsController {
 
-    private ArrayList<Enemic> enemics = new ArrayList<>();
-    private String imgPath = "src/main/resources/images/";
+    private final String imgPath = "src/main/resources/images/";
     private Enemic rival = null;
 
     @FXML private ImageView playerImg = new ImageView();
     @FXML private ImageView enemyImg = new ImageView();
-    @FXML
-    private Button resultButton;
-    @FXML
-    private Label enemyLine;
-
+    @FXML private Button resultButton;
+    @FXML private Label enemyLine;
 
     private void setPlayerData() {
-        String imgTemp = imgPath + DataSingleton.getInstance().getJugador().getPhotos();
+        String imgTemp = imgPath + PicController.getPic(DataSingleton.getInstance().getGame().getId_foto());
         Image tempPhoto = new Image("file:" + imgTemp);
         playerImg.setImage(tempPhoto);
     }
     private void setRival(int i) {
-        enemics = DataSingleton.getInstance().getEnemics();
+        ArrayList<Enemic> enemics = DataSingleton.getInstance().getEnemics();
         rival = enemics.get(i);
-        String tempPhotoPath = imgPath + rival.getPhotos();
+        String tempPhotoPath = imgPath + PicController.getPic(rival.getFoto());
         Image tempPhoto = new Image("file:" + tempPhotoPath);
         enemyImg.setImage(tempPhoto);
     }
@@ -48,7 +44,8 @@ public class ResultsController {
         setPlayerData();
         if (DataSingleton.getInstance().getStage().getTitle().equals("Paper, Rock and Scissor Contest - Game Won")) {
             enemyLine.setText(rival.getLineWin());
-            if (DataSingleton.getInstance().getJugador().getPartidasGanadas() != 5) {
+            if (DataSingleton.getInstance().getPartida() != 5) {
+                DataSingleton.getInstance().setPartida(DataSingleton.getInstance().getPartida() + 1);
                 resultButton.setText("Següent batalla");
                 resultButton.setOnAction(e -> {
                     try {
@@ -85,7 +82,6 @@ public class ResultsController {
     public void nextBattle() throws IOException {
         System.out.println(DataSingleton.getInstance().getEnemic());
         DataSingleton.getInstance().setEnemic(DataSingleton.getInstance().getEnemic()+1);
-        System.out.println(DataSingleton.getInstance().getEnemic());
         Stage stage = DataSingleton.getInstance().getStage();
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("game-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 360);
