@@ -16,12 +16,17 @@
          <font>
             <Font name="Roboto Light" size="18.0" />
          </font></Button>
-      <Button onAction="#openRanking" layoutX="220.0" layoutY="232.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="160.0" text="Rànquing">
+      <Button layoutX="220.0" layoutY="232.0" mnemonicParsing="false" onAction="#openRanking" prefHeight="26.0" prefWidth="160.0" text="Rànquing">
          <font>
             <Font name="Roboto Light" size="18.0" />
          </font>
       </Button>
       <Button layoutX="220.0" layoutY="275.0" mnemonicParsing="false" onAction="#close" prefHeight="26.0" prefWidth="160.0" text="Sortir">
+         <font>
+            <Font name="Roboto Light" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="adminPanel" onAction="#openAdmin" layoutX="14.0" layoutY="310.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="114.0" text="Admin">
          <font>
             <Font name="Roboto Light" size="18.0" />
          </font>

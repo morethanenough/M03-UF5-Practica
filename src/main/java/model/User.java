@@ -91,6 +91,24 @@ public class User {
         return null;
     }
 
+    public static int checkAdmin(int id) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/m03", "root", "");
+            String query = "SELECT admin FROM user WHERE id = ?";
+            PreparedStatement stm = con.prepareStatement(query);
+            stm.setInt(1, id);
+            ResultSet admin = stm.executeQuery();
+            if (admin.next()) {
+                return admin.getInt("admin");
+            } else {
+                return 0;
+            }
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+
     public static boolean deleteUser(int id) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
