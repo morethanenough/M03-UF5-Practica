@@ -9,7 +9,7 @@ public class Enemic extends Pj{
     private String frase1;
     private String frase2;
 
-    public Enemic(String nombre, String frase1, String frase2, String foto){
+    public Enemic(String nombre, String frase1, String frase2, int foto){
         super(nombre, foto);
         this.frase1 = frase1;
         this.frase2 = frase2;
@@ -38,6 +38,10 @@ public class Enemic extends Pj{
 
     public String getLineLose() {
         return frase2;
+    }
+
+    public int getFoto() {
+        return id_foto;
     }
 
     /** Random enemigos para luchar **/

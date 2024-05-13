@@ -26,7 +26,7 @@
             <Font name="Roboto Light" size="18.0" />
          </font>
       </Button>
-      <Button disable="true" layoutX="220.0" layoutY="319.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="160.0" text="Administració">
+      <Button fx:id="adminPanel" onAction="#openAdmin" layoutX="14.0" layoutY="310.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="114.0" text="Admin">
          <font>
             <Font name="Roboto Light" size="18.0" />
          </font>

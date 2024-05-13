@@ -16,3 +16,8 @@ Mètodes: constructor, setters, getters i elegirAtaque (genera la jugada aleator
 Classe que exten de **_Pj_**.
 Atributs: puntuacion, partidasGanadas, partidasPerdidas.
 Mètodes: constructor, setters i getters.
+### User
+En la classe de User hi ha mètodes per a cada petició de la base de dades.<br>
+Per tant quan volem utilitzar una la cridem al controller i fem una nova funció cridant al mètode que volem utilitzar de la classe.<br>
+Cal destacar que en cada mètode s'obre la instància per accedir a la base de dades i quan es finalitza el mètode es tanca la instància.<br>
+

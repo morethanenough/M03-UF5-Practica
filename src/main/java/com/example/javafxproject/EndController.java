@@ -9,10 +9,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import model.Game;
 import model.Jugador;
 import model.Ranking;
 
 import java.io.IOException;
+import java.sql.ResultSet;
 
 public class EndController {
     @FXML
@@ -25,8 +27,19 @@ public class EndController {
     private RankingController rankingController = new RankingController();
 
     public void initialize() {
-        score.setText("" + DataSingleton.getInstance().getJugador().getPuntuacion());
-        rankingController.ordenarRanking(DataSingleton.getInstance().getJugador().getNombre(), DataSingleton.getInstance().getJugador().getPuntuacion());
+        int gameId = DataSingleton.getInstance().getGameId();
+        int points = 0;
+        ResultSet rs = Game.getGame(gameId);
+        try {
+            if (rs.next()) {
+                points = rs.getInt("points");
+            } else {
+                System.out.println("No se ha encontrado el juego");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        score.setText("" + points);
     }
 
     @FXML

@@ -4,12 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="abe76981-5317-4842-add5-ac98869f01b9" name="Changes" comment="Alter wait time, change results screen content on win/lose">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/javafxproject/AdminController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/example/javafxproject/usersManagement.fxml" afterDir="false" />
+    <list default="true" id="abe76981-5317-4842-add5-ac98869f01b9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/javafxproject/PicController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javafxproject/CRUD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javafxproject/CRUD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javafxproject/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javafxproject/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javafxproject/DataSingleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javafxproject/DataSingleton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javafxproject/EndController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javafxproject/EndController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javafxproject/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javafxproject/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javafxproject/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javafxproject/PlayerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/javafxproject/ResultsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/javafxproject/ResultsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Enemic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Enemic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Jugador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Pj.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Pj.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/json/ranking.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/json/ranking.json" afterDir="false" />
     </list>
@@ -58,18 +65,18 @@
     "Git.Branch.Popup.ShowAllRemotes": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feature/uasersManagement",
+    "git-widget-placeholder": "feature/rivalsBBDD",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/didac/Documents/DAW/M03-UF5-Practica/src/main/resources/com/example/javafxproject",
+    "last_opened_file_path": "C:/Users/joanl/Downloads/jdbc.jar",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.48390806",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+    "settings.editor.selected.configurable": "preferences.customizations"
   }
 }]]></component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\didac\Documents\DAW\M03-UF5-Practica\src\main\resources\com\example\javafxproject" />
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.javafxproject" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.example.javafxproject" />

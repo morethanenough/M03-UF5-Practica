@@ -1,5 +1,7 @@
 package model;
 
+import com.example.javafxproject.DataSingleton;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -31,16 +33,18 @@ public class User {
     }
 
     // Mètode per a fer login que retorna l'id de l'usuari o 0 si no existeix o l'usuari o la contrasenya són incorrectes
-    public int login(String name, String password) {
+    public static int login(String name, String password) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/m03", "root", "");
-            String query = "SELECT * FROM user WHERE name = ? AND password = ?";
+            String query = "SELECT * FROM user WHERE name = ? AND pass = ?";
             PreparedStatement stm = con.prepareStatement(query);
             stm.setString(1, name);
             stm.setString(2, password);
             ResultSet result = stm.executeQuery();
+            con.close();
             if (result.next()) {
+                DataSingleton.getInstance().setId_user(result.getInt("id"));
                 return result.getInt("id");
             } else {
                 return 0;
@@ -52,11 +56,11 @@ public class User {
         return 0;
     }
 
-    public boolean createUser(String name, String password) {
+    public static boolean createUser(String name, String password) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/m03", "root", "");
-            String query = "INSERT INTO user (name, admin, password) VALUES (?, ?, ?)";
+            String query = "INSERT INTO user (name, admin, pass) VALUES (?, ?, ?)";
             PreparedStatement stm = con.prepareStatement(query);
             stm.setString(1, name);
             stm.setString(2, "0");
@@ -86,6 +90,25 @@ public class User {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static int checkAdmin(int id) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/m03", "root", "");
+            String query = "SELECT admin FROM user WHERE id = ?";
+            PreparedStatement stm = con.prepareStatement(query);
+            stm.setInt(1, id);
+            ResultSet admin = stm.executeQuery();
+            con.close();
+            if (admin.next()) {
+                return admin.getInt("admin");
+            } else {
+                return 0;
+            }
+        } catch (Exception e) {
+            return 0;
+        }
     }
 
     public static boolean deleteUser(String name) {

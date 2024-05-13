@@ -1,3 +1,7 @@
+DROP DATABASE IF EXISTS m03;
+CREATE DATABASE IF NOT EXISTS m03;
+USE m03;
+
 -- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
