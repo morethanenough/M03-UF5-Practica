@@ -48,7 +48,7 @@ public class MenuController {
 
     public void openRanking(ActionEvent event) throws IOException {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("usersManagement.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("ranking.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 360);
         stage.setTitle("Paper, Rock and Scissor Contest - Ranking");
         stage.setScene(scene);
@@ -57,7 +57,7 @@ public class MenuController {
 
     public void openAdmin(ActionEvent event) throws IOException {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("login-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("usersManagement.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 360);
         stage.setTitle("Paper, Rock and Scissor Contest - Admin Panel");
         stage.setScene(scene);
